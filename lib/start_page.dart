@@ -5,6 +5,8 @@ import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:brandbuilder_flutter/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/main_company_page.dart';
+
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
 
@@ -25,7 +27,7 @@ class _StartPageState extends State<StartPage> {
   static const List pages = [
     HomePage(),
     FreelancerPage(),
-    CompanyPage(),
+    MainCompanyPage(),
     HistoryPage(),
     ProfilePage(),
   ];
