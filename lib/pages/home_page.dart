@@ -13,11 +13,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List jobType = [
-    ['Application Developer', true],
-    ['Project Manager', false],
-    ['Designer', false],
-    ['Tester', false],
-    ['Marketing', false],
+    ['Application Developer'],
+    ['Project Manager'],
+    ['Designer'],
+    ['Tester'],
+    ['Marketing'],
   ];
 
   final List People = [
@@ -32,12 +32,10 @@ class _HomePageState extends State<HomePage> {
     ['Random Name', 50.00],
   ];
 
+  int? selectedJobIndex;
   jobSelect(int index) {
     setState(() {
-      for (int i = 0; i <= jobType.length; i++) {
-        jobType[index][1] = false;
-      }
-      jobType[index][1] = true;
+      selectedJobIndex = index;
     });
   }
 
@@ -157,9 +155,9 @@ class _HomePageState extends State<HomePage> {
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: jobType.length,
-                  itemBuilder: (Context, index) {
+                  itemBuilder: (context, index) {
                     return HomeHorizonalTile(
-                        isSelected: jobType[index][1],
+                        isSelected: selectedJobIndex == index,
                         jobType: jobType[index][0],
                         onTap: () {
                           jobSelect(index);

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/gradient_border.dart';
+
 class FreelancerPage extends StatefulWidget {
   const FreelancerPage({Key? key}) : super(key: key);
 
@@ -11,28 +13,6 @@ class FreelancerPageState extends State<FreelancerPage> {
   bool _saveimage = false;
   @override
   Widget build(BuildContext context) {
-    Container gradientBorder(String value) {
-      return Container(
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            gradient: const LinearGradient(
-              colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )),
-        height: 27,
-        width: 152,
-        child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: Colors.black, borderRadius: BorderRadius.circular(10)),
-            width: 150,
-            height: 25,
-            child: Text(value)),
-      );
-    }
-
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -78,7 +58,9 @@ class FreelancerPageState extends State<FreelancerPage> {
                                   });
                                 },
                                 child: Container(
-                                  color: _saveimage ? null : const Color(0xff5A5BF3),
+                                  color: _saveimage
+                                      ? const Color(0xff5A5BF3)
+                                      : null,
                                   child: Image.asset(
                                       'assets/images/saveimage.png'),
                                 )),
@@ -174,8 +156,14 @@ class FreelancerPageState extends State<FreelancerPage> {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      gradientBorder('Total Earnings: \$900+'),
-                      gradientBorder('Total Jobs : 23'),
+                      GradientBorder(
+                        height: 27,
+                        width: 152,
+                        text: 'Total Earnings: \$900+'),
+                      GradientBorder(
+                        height: 27,
+                        width: 152,
+                        text: 'Total Jobs : 23'),
                     ]),
                 const SizedBox(height: 10),
                 const Text('Work History', style: TextStyle(fontSize: 20)),
@@ -201,6 +189,8 @@ class FreelancerPageState extends State<FreelancerPage> {
     );
   }
 }
+
+
 
 class CustomListTile extends StatelessWidget {
   final int leadingcolor;

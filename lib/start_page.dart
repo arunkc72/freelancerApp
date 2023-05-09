@@ -16,10 +16,10 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage> {
   int _selectedIndex = 0;
-  final _selectedBgColor = Color.fromRGBO(255, 255, 255, 0.14);
-  final _unselectedBgColor = Colors.black;
-  Color _getBgColor(int index) =>
-      _selectedIndex == index ? _selectedBgColor : _unselectedBgColor;
+  // final _selectedBgColor = Color.fromRGBO(255, 255, 255, 0.14);
+  // final _unselectedBgColor = Colors.black;
+  // Color _getBgColor(int index) =>
+  //     _selectedIndex == index ? _selectedBgColor : _unselectedBgColor;
   Widget _buttomIcon(Widget icon, int index) {
     return icon;
   }
