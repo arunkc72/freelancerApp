@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                     'Companies',
                     style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.normal,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                   Text(
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                     'FreeLancer',
                     style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.normal,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                   Text(
@@ -193,11 +193,14 @@ class _HomePageState extends State<HomePage> {
                     'Service As Subscription',
                     style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.normal,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Expanded(
               child: Padding(

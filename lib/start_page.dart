@@ -5,6 +5,8 @@ import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:brandbuilder_flutter/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/main_company_page.dart';
+
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
 
@@ -18,7 +20,7 @@ class _StartPageState extends State<StartPage> {
   static const List pages = [
     HomePage(),
     FreelancerPage(),
-    CompanyPage(),
+    MainCompanyPage(),
     HistoryPage(),
     ProfilePage(),
   ];
@@ -34,7 +36,7 @@ class _StartPageState extends State<StartPage> {
               icon: Icon(Icons.person_4_outlined), label: 'Free Lancer'),
           BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Company'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'History'),
+              icon: Icon(Icons.history_outlined), label: 'History'),
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline), label: 'Profile'),
         ],
@@ -44,7 +46,8 @@ class _StartPageState extends State<StartPage> {
           });
         },
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
       ),
     );
   }
