@@ -4,6 +4,7 @@ import 'package:brandbuilder_flutter/pages/history_page.dart';
 import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:brandbuilder_flutter/pages/profile_page.dart';
 import 'package:flutter/material.dart';
+
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
 
@@ -20,14 +21,11 @@ class _StartPageState extends State<StartPage> {
     CompanyPage(),
     HistoryPage(),
     ProfilePage(),
-
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: pages[_selectedIndex],
-      ),
+      body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
