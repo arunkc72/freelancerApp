@@ -134,11 +134,27 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
                 height: 15,
               ),
               Container(
-                color: Colors.grey[600],
+                color: Colors.transparent,
                 height: 150,
+                child: Wrap(
+                  spacing: 12.0,
+                  runSpacing: 10.0,
+                  children: [
+                    servicesContainer(content: 'SEO'),
+                    servicesContainer(content: 'Digital Marketing'),
+                    servicesContainer(content: 'Business Planning'),
+                    servicesContainer(content: 'Photo Editior'),
+                    servicesContainer(content: 'Graphics Design'),
+                    servicesContainer(content: 'UI/UX Design'),
+                    servicesContainer(content: 'Video Editing'),
+                    servicesContainer(content: 'Mobile & Web Development'),
+                    servicesContainer(content: 'point of sale(online/offline)'),
+                    servicesContainer(content: 'ordering System'),
+                  ],
+                ),
               ),
               SizedBox(
-                height: 10,
+                height: 13,
               ),
               Text(
                 'Service As Subscription',
@@ -149,7 +165,6 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
               ),
               Expanded(
                 child: ListView.builder(
-                    shrinkWrap: false,
                     itemCount: subsType.length,
                     itemBuilder: (context, index) {
                       return HomeVerticalTile(
@@ -162,6 +177,24 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class servicesContainer extends StatelessWidget {
+  final String content;
+
+  const servicesContainer({super.key, required this.content});
+
+  // const servicesContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(6),
+      decoration: BoxDecoration(
+          color: Colors.grey[800], borderRadius: BorderRadius.circular(12)),
+      child: Text(content),
     );
   }
 }

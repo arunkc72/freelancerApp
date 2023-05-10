@@ -170,17 +170,20 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 15,
             ),
-            Container(
-              height: 175,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: People.length,
-                  itemBuilder: (context, index) {
-                    return HorizontalTile(
-                      imagePath: People[index][1],
-                      name: People[index][0],
-                    );
-                  }),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: Container(
+                height: 175,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: People.length,
+                    itemBuilder: (context, index) {
+                      return HorizontalTile(
+                        imagePath: People[index][1],
+                        name: People[index][0],
+                      );
+                    }),
+              ),
             ),
             SizedBox(
               height: 15,
