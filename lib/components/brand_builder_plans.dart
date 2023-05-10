@@ -16,7 +16,7 @@ class BrandBuilderPlans extends StatelessWidget {
       children: [
         Container(
           height: 120,
-          width: 100,
+          width: 105,
           decoration: BoxDecoration(
             border: GradientBoxBorder(
               gradient: LinearGradient(
@@ -65,7 +65,7 @@ class BrandBuilderPlans extends StatelessWidget {
         ),
         Container(
           height: 27,
-          width: 100,
+          width: 105,
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
