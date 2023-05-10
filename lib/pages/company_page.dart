@@ -38,12 +38,15 @@ class _CompanyPageState extends State<CompanyPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 20,
-                  width: 20.3,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/Vector.png"))),
+                GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Container(
+                    height: 20,
+                    width: 20.3,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/Vector.png"))),
+                  ),
                 ),
                 const SizedBox(
                   height: 15,
