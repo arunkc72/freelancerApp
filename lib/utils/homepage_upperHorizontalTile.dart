@@ -1,4 +1,6 @@
+import 'package:brandbuilder_flutter/utils/gradient_border.dart';
 import 'package:flutter/material.dart';
+import 'package:gradient_borders/gradient_borders.dart';
 
 class HomeHorizonalTile extends StatelessWidget {
   final bool isSelected;
@@ -24,14 +26,18 @@ class HomeHorizonalTile extends StatelessWidget {
           padding: EdgeInsets.all(9),
           decoration: BoxDecoration(
               border: isSelected
-                  ? Border.all(color: Colors.orange)
+                  ? GradientBoxBorder(
+                      gradient: LinearGradient(
+                        colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
+                      ),
+                    )
                   : Border.all(width: 0),
               borderRadius: isSelected
-                  ? BorderRadius.circular(12)
+                  ? BorderRadius.circular(20)
                   : BorderRadius.circular(0)),
           child: Text(
             jobType,
-            style: TextStyle(color: isSelected ? Colors.pink : Colors.white),
+            // style: TextStyle(color: isSelected ? Colors.pink : Colors.white),
           ),
         ),
       ),

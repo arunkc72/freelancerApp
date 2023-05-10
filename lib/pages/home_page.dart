@@ -102,24 +102,27 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  UpperContainer(
-                      companyName: 'BrandBuilder',
-                      logoPath: 'assets/images/brandbuilderLogo.png',
-                      companyType: 'IT Company'),
-                  UpperContainer(
-                      companyName: 'InGrails',
-                      logoPath: 'assets/images/ingrailsLogo.png',
-                      companyType: 'IT Company'),
-                  UpperContainer(
-                      companyName: 'IMS',
-                      logoPath: 'assets/images/imsLogo.png',
-                      companyType: 'Software Company'),
-                ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    UpperContainer(
+                        companyName: 'BrandBuilder',
+                        logoPath: 'assets/images/brandbuilderLogo.png',
+                        companyType: 'IT Company'),
+                    UpperContainer(
+                        companyName: 'InGrails',
+                        logoPath: 'assets/images/ingrailsLogo.png',
+                        companyType: 'IT Company'),
+                    UpperContainer(
+                        companyName: 'IMS',
+                        logoPath: 'assets/images/imsLogo.png',
+                        companyType: 'Software Company'),
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -167,17 +170,20 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 15,
             ),
-            Container(
-              height: 175,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: People.length,
-                  itemBuilder: (context, index) {
-                    return HorizontalTile(
-                      imagePath: People[index][1],
-                      name: People[index][0],
-                    );
-                  }),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: Container(
+                height: 175,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: People.length,
+                    itemBuilder: (context, index) {
+                      return HorizontalTile(
+                        imagePath: People[index][1],
+                        name: People[index][0],
+                      );
+                    }),
+              ),
             ),
             SizedBox(
               height: 15,
@@ -204,6 +210,7 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: ListView.builder(
+                    // padding: EdgeInsets.only(top: 2),
                     itemCount: subsType.length,
                     itemBuilder: (context, index) {
                       return HomeVerticalTile(

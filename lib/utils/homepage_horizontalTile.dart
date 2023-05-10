@@ -16,11 +16,13 @@ class HorizontalTile extends StatelessWidget {
       child: Container(
         height: 175,
         width: 150,
+        margin: EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
-          image: AssetImage(imagePath),
-          fit: BoxFit.cover,
-        )),
+              image: AssetImage(imagePath),
+              fit: BoxFit.cover,
+            )),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

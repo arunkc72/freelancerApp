@@ -28,7 +28,7 @@ class HomeVerticalTile extends StatelessWidget {
           style: TextStyle(
               fontSize: 15, color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        subtitle: Text('I am a sentence . palce here random random ',
+        subtitle: Text('I am a sentence.place here random random ',
             style: TextStyle(
               fontSize: 13,
               color: Colors.black,
@@ -44,7 +44,8 @@ class HomeVerticalTile extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(6),
               decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(15)),
+                  color: Colors.lightBlue,
+                  borderRadius: BorderRadius.circular(15)),
               child: Text('Monthly'),
             )
           ],
