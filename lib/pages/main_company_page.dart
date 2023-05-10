@@ -61,6 +61,7 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
                     onTap: () {
