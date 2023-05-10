@@ -5,8 +5,31 @@ class PersonalInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> personalinfo = [
+      'Full name',
+      'Date of Birth (B.S)',
+      'Date of Birth (A.D)',
+      'Gender',
+      'Phone Number',
+      'Email',
+      'Occupation',
+      'Address',
+      'Document Type',
+    ];
+    List<String> personaldata = [
+      'Zeal Heal',
+      '2049-05-19',
+      '1992-09-23',
+      'Male',
+      '+977 981232131',
+      'zeahheal@gmail.com',
+      'Businessman',
+      'Kathmandu,Nepal',
+      'Citizenship',
+    ];
     return Scaffold(
       body: Container(
+        height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/images/darkThemeBackground.png'),
@@ -45,7 +68,26 @@ class PersonalInformation extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 47),
-                
+                for (int i = 0; i <= 8; i++)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        personalinfo[i],
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w300),
+                      ),
+                      SizedBox(height: 12),
+                      Text(
+                        personaldata[i],
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(
+                        height: 12,
+                      )
+                    ],
+                  ),
               ],
             ),
           ),

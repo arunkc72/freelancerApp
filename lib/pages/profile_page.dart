@@ -14,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void handleTileTap(int index) {
     setState(() {
       selectedTileIndex = index;
-      Navigator.push(
+      index !=0 ? null :Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => PersonalInformation(),
