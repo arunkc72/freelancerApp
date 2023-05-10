@@ -11,39 +11,49 @@ class FreelancerPage extends StatefulWidget {
 
 class FreelancerPageState extends State<FreelancerPage> {
   bool _saveimage = false;
+  TextStyle myTextStyle(double fontSize, FontWeight fontWeight, Color color) {
+    return TextStyle(
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      color: color,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/darkThemeBackground.png'),
-              fit: BoxFit.cover),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 24.0,
+      body: SafeArea(
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/darkThemeBackground.png'),
+                fit: BoxFit.cover),
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 50),
-                IconButton(
-                    constraints: const BoxConstraints(),
-                    padding: EdgeInsets.zero,
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.arrow_back,
-                        color: Colors.white, size: 20)),
-                IntrinsicHeight(
-                  child: Row(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 29),
+                  IconButton(
+                      constraints: const BoxConstraints(),
+                      padding: EdgeInsets.zero,
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back,
+                          color: Colors.white, size: 20)),
+                  const SizedBox(height: 27),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child: Stack(
-                          alignment: const Alignment(0.8, -1),
+                          alignment: const Alignment(0.825, -1),
                           children: [
                             Image.asset(
                               'assets/images/freelancerprofile.png',
@@ -67,41 +77,41 @@ class FreelancerPageState extends State<FreelancerPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(width: 20),
+                      const SizedBox(width: 23),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(height: 12),
-                          RichText(
-                              text: TextSpan(children: [
-                            const TextSpan(
-                              text: 'John Jack\n',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                          Text('John Jack',
+                              style: myTextStyle(
+                                  20, FontWeight.w600, Colors.white)),
+                          SizedBox(height: 10),
+                          Text('UI/UX Designer',
+                              style: myTextStyle(14, FontWeight.w400,
+                                  Colors.white.withOpacity(0.5))),
+                          SizedBox(height: 10),
+                          Text('Experience: 2+ years',
+                              style: myTextStyle(14, FontWeight.w400,
+                                  Colors.white.withOpacity(0.5))),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: Color(0xffffc107),
+                                size: 15,
                               ),
-                            ),
-                            const WidgetSpan(child: SizedBox(height: 20)),
-                            TextSpan(
-                              text: 'UI/UX Designer \nExperience: 2+ years\n',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: const Color(0xffffffff).withOpacity(0.5),
+                              Text(
+                                '4.6',
+                                style: myTextStyle(
+                                    12, FontWeight.w400, Colors.white),
                               ),
-                            ),
-                            const WidgetSpan(child: SizedBox(height: 20)),
-                            const WidgetSpan(
-                                child: Icon(
-                              Icons.star,
-                              color: Color(0xffffc107),
-                              size: 15,
-                            )),
-                            const WidgetSpan(child: SizedBox(height: 20)),
-                            const TextSpan(
-                                text: '4.6 \n \$50.00/hr\n',
-                                style: TextStyle(fontSize: 12)),
-                            const WidgetSpan(child: SizedBox(height: 20)),
-                          ])),
+                            ],
+                          ),
+                          Text('\$50.00/hr',
+                              style: myTextStyle(
+                                  14, FontWeight.w400, Colors.white)),
+                          SizedBox(height: 16),
                           Container(
                             height: 24,
                             width: 103,
@@ -115,73 +125,103 @@ class FreelancerPageState extends State<FreelancerPage> {
                                       Color(0xff65F4CD),
                                       Color(0xff5A5BF3),
                                     ])),
-                            child: const Text('Connect Now '),
+                            child: const Text(
+                              'Connect Now',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w600),
+                            ),
                           ),
                         ],
                       ),
                     ],
                   ),
-                ),
-                RichText(
-                    text: const TextSpan(
-                        text: '\nDescription\n',
-                        style: TextStyle(fontSize: 16),
-                        children: [
-                      TextSpan(
-                          text:
-                              '\nHey, I am John Jack. I have been into UX/UI since 2020. During this time, I started as UI designer and developed my skills to UX designer too.\n',
-                          style: TextStyle(fontSize: 12),
+                  SizedBox(height: 15),
+                  RichText(
+                      text: const TextSpan(
+                          text: 'Description\n',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600),
                           children: [
-                            TextSpan(
-                                text: '\nMy strength includes\n\n',
-                                style: TextStyle(fontSize: 14)),
-                            TextSpan(
-                                text:
-                                    '\u2022 Initiate design backed with proper research and study (qualitative and quantitative as per requirement).\n \u2022 Clean and aesthetic interface which is vital to stand from competitors.\n \u2022 Communication with clients to identify what they want to achieve.\n \u2022 HTML/CSS/JAVASCRIPT knowledge Deadline compliance.\n'),
-                            TextSpan(
-                                text: '\nMy magic tools\n',
-                                style: TextStyle(fontSize: 14)),
-                            TextSpan(
-                                text:
-                                    '\n \u2022 Figma, Adobe XD, Blasamiq mockup, traditional pen and paper, notion.\n'),
-                            TextSpan(
-                                text: '\nExperience\n',
-                                style: TextStyle(fontSize: 14)),
-                            TextSpan(
-                                text:
-                                    '\n\u2022 UX/UI designer (2020- present) Brandbuilder \n\u2022 Working as a lead UX/UI designer. Prototyped and sketched food ordering applications, admin panel, pos, landing pages along with my amazing teams and interns.'),
+                        TextSpan(
+                            text:
+                                '\nHey, I am John Jack. I have been into UX/UI since 2020. During this time, I started as UI designer and developed my skills to UX designer too.\n',
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w300),
+                            children: [
+                              TextSpan(
+                                  text: '\nMy strength includes\n\n',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.w600)),
+                              TextSpan(
+                                  text:
+                                      '\u2022 Initiate design backed with proper research and study (qualitative and quantitative as per requirement).\n\u2022 Clean and aesthetic interface which is vital to stand from competitors.\n \u2022 Communication with clients to identify what they want to achieve.\n \u2022 HTML/CSS/JAVASCRIPT knowledge Deadline compliance.\n'),
+                              TextSpan(
+                                  text: '\nMy magic tools\n',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.w600)),
+                              TextSpan(
+                                  text:
+                                      '\n \u2022 Figma, Adobe XD, Blasamiq mockup, traditional pen and paper, notion.\n'),
+                              TextSpan(
+                                  text: '\nExperience\n',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.w600)),
+                              TextSpan(
+                                  text:
+                                      '\n\u2022 UX/UI designer (2020- present) Brandbuilder \n\u2022 Working as a lead UX/UI designer. Prototyped and sketched food ordering applications, admin panel, pos, landing pages along with my amazing teams and interns.'),
+                            ]),
+                      ])),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10.0,
+                    ),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GradientBorder(
+                              radius: 10,
+                              height: 27,
+                              width: 152,
+                              child: Text(
+                                'Total Earnings: \$900+',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w300),
+                              ),
+                            ),
+                            GradientBorder(
+                              radius: 10,
+                              height: 27,
+                              width: 152,
+                              child: Text(
+                                'Total Jobs : 23',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w300),
+                              ),
+                            ),
                           ]),
-                    ])),
-                const SizedBox(height: 10),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GradientBorder(
-                        height: 27,
-                        width: 152,
-                        text: 'Total Earnings: \$900+'),
-                      GradientBorder(
-                        height: 27,
-                        width: 152,
-                        text: 'Total Jobs : 23'),
-                    ]),
-                const SizedBox(height: 10),
-                const Text('Work History', style: TextStyle(fontSize: 20)),
-                const SizedBox(height: 8),
-                const CustomListTile(
-                    leadingcolor: 0xff09C527,
-                    title: 'Website developer wanted',
-                    subtitle: 'Job in progress',
-                    price: '\$420.00',
-                    duration: 'Oct 22,2001 - Present'),
-                const SizedBox(height: 8),
-                const CustomListTile(
-                    leadingcolor: 0xffff0000,
-                    title: 'Website developer wanted',
-                    subtitle: 'Completed',
-                    price: '\$210.00',
-                    duration: 'Feb 1,2021-April 25,2021'),
-              ],
+                    ),
+                  ),
+                  const SizedBox(height: 22),
+                  const Text('Work History', style: TextStyle(fontSize: 16)),
+                  const SizedBox(height: 17),
+                  const CustomListTile(
+                      leadingcolor: 0xff09C527,
+                      title: 'Website developer wanted',
+                      subtitle: 'Job in progress',
+                      price: '\$420.00',
+                      duration: 'Oct 22,2001 - Present'),
+                  const SizedBox(height: 8),
+                  const CustomListTile(
+                      leadingcolor: 0xffff0000,
+                      title: 'Website developer wanted',
+                      subtitle: 'Completed',
+                      price: '\$210.00',
+                      duration: 'Feb 1,2021-April 25,2021'),
+                ],
+              ),
             ),
           ),
         ),
@@ -189,8 +229,6 @@ class FreelancerPageState extends State<FreelancerPage> {
     );
   }
 }
-
-
 
 class CustomListTile extends StatelessWidget {
   final int leadingcolor;
@@ -209,38 +247,57 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 33,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
-      child: ListTile(
-        visualDensity: const VisualDensity(vertical: -4),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-        dense: true,
-        minLeadingWidth: 10,
-        tileColor: Colors.white,
-        leading: Container(
-          height: 6,
-          width: 6,
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: Color(leadingcolor)),
-        ),
-        textColor: Colors.black,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(title, style: const TextStyle(fontSize: 10)),
-            Text(subtitle, style: const TextStyle(fontSize: 8)),
-          ],
-        ),
-        trailing: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(price, style: const TextStyle(fontSize: 10)),
-            Text(duration, style: const TextStyle(fontSize: 8)),
-          ],
-        ),
-      ),
-    );
+        height: 33,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(10)),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Row(
+            children: [
+              SizedBox(width: 5),
+              Container(
+                height: 6,
+                width: 6,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: Color(leadingcolor)),
+              ),
+              SizedBox(width: 6),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(title,
+                      style:
+                          const TextStyle(fontSize: 10, color: Colors.black)),
+                  SizedBox(width: 3),
+                  Text(subtitle,
+                      style: const TextStyle(
+                          fontSize: 8,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w300)),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(price,
+                      style:
+                          const TextStyle(fontSize: 10, color: Colors.black)),
+                  SizedBox(width: 3),
+                  Text(duration,
+                      style: const TextStyle(
+                          fontSize: 8,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w300)),
+                ],
+              ),
+              SizedBox(width: 17),
+            ],
+          ),
+        ]));
   }
 }
