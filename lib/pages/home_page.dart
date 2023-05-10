@@ -210,6 +210,7 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: ListView.builder(
+                    // padding: EdgeInsets.only(top: 2),
                     itemCount: subsType.length,
                     itemBuilder: (context, index) {
                       return HomeVerticalTile(

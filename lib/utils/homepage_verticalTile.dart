@@ -44,7 +44,8 @@ class HomeVerticalTile extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(6),
               decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(15)),
+                  color: Colors.lightBlue,
+                  borderRadius: BorderRadius.circular(15)),
               child: Text('Monthly'),
             )
           ],

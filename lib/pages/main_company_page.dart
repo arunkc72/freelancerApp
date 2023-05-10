@@ -169,7 +169,7 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
                 ),
               ),
               SizedBox(
-                height: 13,
+                height: 10,
               ),
               Text(
                 'Service As Subscription',
@@ -178,8 +178,12 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Expanded(
                 child: ListView.builder(
+                    padding: EdgeInsets.only(top: 1),
                     itemCount: subsType.length,
                     itemBuilder: (context, index) {
                       return HomeVerticalTile(
