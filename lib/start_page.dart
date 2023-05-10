@@ -5,6 +5,8 @@ import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:brandbuilder_flutter/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/main_company_page.dart';
+
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
 
@@ -14,11 +16,18 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage> {
   int _selectedIndex = 0;
-  static const TextStyle mystyle = TextStyle(fontSize: 40);
+  // final _selectedBgColor = Color.fromRGBO(255, 255, 255, 0.14);
+  // final _unselectedBgColor = Colors.black;
+  // Color _getBgColor(int index) =>
+  //     _selectedIndex == index ? _selectedBgColor : _unselectedBgColor;
+  Widget _buttomIcon(Widget icon, int index) {
+    return icon;
+  }
+
   static const List pages = [
     HomePage(),
     FreelancerPage(),
-    CompanyPage(),
+    MainCompanyPage(),
     HistoryPage(),
     ProfilePage(),
   ];
@@ -27,16 +36,44 @@ class _StartPageState extends State<StartPage> {
     return Scaffold(
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home'),
+              icon: _buttomIcon(
+                  Image.asset(
+                    'assets/images/home.png',
+                    height: 40,
+                    width: 40,
+                  ),
+                  0),
+              label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_4_outlined), label: 'Free Lancer'),
-          BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Company'),
+              icon: _buttomIcon(
+                  Image.asset(
+                    'assets/images/freelancer.png',
+                    height: 40,
+                    width: 40,
+                  ),
+                  1),
+              label: 'FreeLancer'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'History'),
+              icon: _buttomIcon(
+                  Image.asset('assets/images/company.png',
+                      height: 40, width: 40),
+                  2),
+              label: 'Company'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline), label: 'Profile'),
+              icon: _buttomIcon(
+                  Image.asset('assets/images/History.png',
+                      height: 40, width: 40),
+                  3),
+              label: 'History'),
+          BottomNavigationBarItem(
+              icon: _buttomIcon(
+                  Image.asset('assets/images/profile.png',
+                      height: 40, width: 40),
+                  4),
+              label: 'Profile'),
         ],
         onTap: (value) {
           setState(() {
@@ -44,7 +81,8 @@ class _StartPageState extends State<StartPage> {
           });
         },
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.white,
+        showUnselectedLabels: true,
       ),
     );
   }
