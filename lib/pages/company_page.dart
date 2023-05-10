@@ -92,7 +92,7 @@ class _CompanyPageState extends State<CompanyPage> {
                 ),
                 // this component in in component folder
                 Container(
-                  width: double.infinity,
+                  // width: double.infinity,
                   height: 130,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
