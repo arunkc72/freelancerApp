@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_borders/gradient_borders.dart';
 
 class BrandBuilderPlans extends StatelessWidget {
   String? planId, planName, planPrice;
@@ -14,16 +15,18 @@ class BrandBuilderPlans extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 130,
-          width: 110,
+          height: 120,
+          width: 100,
           decoration: BoxDecoration(
-            border: Border.all(
-              color: Color(0xFF2F2E2E),
+            border: GradientBoxBorder(
+              gradient: LinearGradient(
+                colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
+              ),
             ),
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+            borderRadius: BorderRadius.circular(20),
             boxShadow: [
-              BoxShadow(color: Colors.transparent),
+              BoxShadow(color: Colors.transparent, spreadRadius: 5),
+              BoxShadow(color: Colors.transparent, blurRadius: 4),
             ],
           ),
           child: Column(
@@ -62,9 +65,13 @@ class BrandBuilderPlans extends StatelessWidget {
         ),
         Container(
           height: 27,
-          width: 110,
+          width: 100,
           decoration: BoxDecoration(
-            color: Colors.lightBlue,
+            gradient: const LinearGradient(
+              colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
             borderRadius: BorderRadius.circular(15),
           ),
           child: Center(
