@@ -1,4 +1,5 @@
 import 'package:brandbuilder_flutter/components/constant.dart';
+import 'package:brandbuilder_flutter/components/tile_history.dart';
 import 'package:flutter/material.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -72,73 +73,57 @@ class _HistoryPageState extends State<HistoryPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Hired",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white38),
-                    ),
-                    Container(
-                      height: 400,
-                      color: Colors.red,
-                      width: double.infinity,
-                      child: ListView.builder(
-                          itemCount: history.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ListTile(
-                                leading: Container(
-                                  // padding: EdgeInsets.symmetric(horizontal: 0),
-                                  height: 80,
-                                  width: 60,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                          history[index]['image'].toString(),
-                                        ),
-                                        fit: BoxFit.cover),
-                                  ),
-                                ),
-                                title: Text(
-                                  history[index]['name'].toString(),
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                subtitle: Column(
-                                  children: [
-                                    Text(
-                                      history[index]['position'].toString(),
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    Text(
-                                      history[index]['position'].toString(),
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ],
-                                ),
-                                trailing: Text(
-                                  history[index]['rating'].toString(),
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                            );
-                          }),
-                    )
-                  ],
+                SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Hired",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white38),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 250,
+                        //color: Colors.red,
+                        width: double.infinity,
+                        child: ListView.builder(
+                            itemCount: history.length,
+                            itemBuilder: (context, index) {
+                              return TileHistory(index: index);
+                            }),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Worked",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white38),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 200,
+                        //color: Colors.red,
+                        width: double.infinity,
+                        child: ListView.builder(
+                            itemCount: history.length,
+                            itemBuilder: (context, index) {
+                              return TileHistory(index: index);
+                            }),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
