@@ -1,3 +1,5 @@
+import 'package:brandbuilder_flutter/pages/company_page.dart';
+import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/homepage_verticalTile.dart';
@@ -40,7 +42,11 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
               Row(
                 children: [
                   IconButton(
-                      onPressed: () => Navigator.pop(context),
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          )),
                       icon: Icon(Icons.arrow_back, color: Colors.white)),
                   Expanded(
                     child: Text(
@@ -56,14 +62,23 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 115,
-                    width: 110,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Image.asset(
-                      'assets/images/brandbuilderLogoBig.png',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CompanyPage(),
+                          ));
+                    },
+                    child: Container(
+                      height: 115,
+                      width: 110,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Image.asset(
+                        'assets/images/brandbuilderLogoBig.png',
+                      ),
                     ),
                   ),
                   SizedBox(
