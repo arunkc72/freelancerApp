@@ -28,7 +28,7 @@ class FreelancerPageState extends State<FreelancerPage> {
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/images/darkThemeBackground.png'),
-                fit: BoxFit.cover),
+                fit: BoxFit.fill),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(
@@ -39,7 +39,7 @@ class FreelancerPageState extends State<FreelancerPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 29),
+                  const SizedBox(height: 38),
                   IconButton(
                       constraints: const BoxConstraints(),
                       padding: EdgeInsets.zero,

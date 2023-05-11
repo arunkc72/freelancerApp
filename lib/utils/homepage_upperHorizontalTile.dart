@@ -20,10 +20,12 @@ class HomeHorizonalTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.only(left: 20),
+        padding: EdgeInsets.only(left: 24),
         child: Container(
-          // height: 10,
-          padding: EdgeInsets.all(9),
+          alignment: Alignment.center,
+          height: 22,
+          width: 78,
+          padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
               border: isSelected
                   ? GradientBoxBorder(
@@ -31,13 +33,13 @@ class HomeHorizonalTile extends StatelessWidget {
                         colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
                       ),
                     )
-                  : Border.all(width: 0),
+                  : null,
               borderRadius: isSelected
                   ? BorderRadius.circular(20)
                   : BorderRadius.circular(0)),
           child: Text(
             jobType,
-            // style: TextStyle(color: isSelected ? Colors.pink : Colors.white),
+            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 8),
           ),
         ),
       ),

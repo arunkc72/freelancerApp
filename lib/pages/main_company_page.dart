@@ -21,179 +21,194 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: double.maxFinite,
-        width: double.infinity,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage("assets/images/darkThemeBackground.png"),
-          fit: BoxFit.cover,
-        )),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: 0,
-            horizontal: 24.0,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 40),
-              Row(
-                children: [
-                  IconButton(
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomePage(),
-                          )),
-                      icon: Icon(Icons.arrow_back, color: Colors.white)),
-                  Expanded(
-                    child: Text(
-                      'Company',
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Row(
+      body: SafeArea(
+        child: Container(
+          // height: double.maxFinite,
+          // width: double.infinity,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage("assets/images/darkThemeBackground.png"),
+            fit: BoxFit.fill,
+          )),
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              // vertical: 0,
+              horizontal: 24.0,
+            ),
+            child: SingleChildScrollView(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CompanyPage(),
-                          ));
-                    },
-                    child: Container(
-                      height: 115,
-                      width: 110,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Image.asset(
-                        'assets/images/brandbuilderLogoBig.png',
+                  const SizedBox(height: 38),
+                  Row(
+                    children: [
+                      IconButton(
+                          constraints: BoxConstraints(),
+                          padding: EdgeInsets.zero,
+                          onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomePage(),
+                              )),
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                            size: 20,
+                          )),
+                      Expanded(
+                        child: Text(
+                          'Companies',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Column(
+                  const SizedBox(height: 28),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Brand Builder',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CompanyPage(),
+                              ));
+                        },
+                        child: Container(
+                          height: 119,
+                          width: 119,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Image.asset(
+                            'assets/images/brandbuilderLogoBig.png',
+                          ),
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        width: 29,
                       ),
-                      Text('IT Company',
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                            fontWeight: FontWeight.bold,
-                          )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.star_half),
-                          SizedBox(
-                            width: 7,
+                          Text(
+                            'Brand Builder',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                          Text('4.6'),
+                          SizedBox(
+                            height: 11,
+                          ),
+                          Text('IT Company',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                color: Colors.white.withOpacity(0.5),
+                              )),
+                          SizedBox(
+                            height: 11,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.star_half),
+                              SizedBox(
+                                width: 7,
+                              ),
+                              Text(
+                                '4.6',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w400),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Total Jobs: 2000+',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w400))
                         ],
                       ),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Text('Total Jobs: 2000+')
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Icon(Icons.bookmark_add_outlined),
+                          ],
+                        ),
+                      )
                     ],
                   ),
-                  Expanded(
-                    child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(Icons.bookmark_add_outlined),
-                      ],
-                    ),
-                  )
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    'Our development team and the client discuss about the problem domain or any idea and collects information to make the requirements clear for both parties. We use Fig Jam and Miro for interactive and informative requirement analysis. After requirement gathering, our team allocates tools and resources for software development process. Afterwards, we schedule the time needed for the software development',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
+                  ),
+                  SizedBox(
+                    height: 19,
+                  ),
+                  Text(
+                    'Services',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Wrap(
+                    spacing: 18.0,
+                    runSpacing: 13.0,
+                    children: [
+                      servicesContainer(content: 'SEO'),
+                      servicesContainer(content: 'Digital Marketing'),
+                      servicesContainer(content: 'Business Planning'),
+                      servicesContainer(content: 'Photo Editior'),
+                      servicesContainer(content: 'Graphics Design'),
+                      servicesContainer(content: 'UI/UX Design'),
+                      servicesContainer(content: 'Video Editing'),
+                      servicesContainer(content: 'Mobile & Web Development'),
+                      servicesContainer(
+                          content: 'Point of sale(online/offline)'),
+                      servicesContainer(content: 'Ordering System'),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 29,
+                  ),
+                  Text(
+                    'Service As Subscription',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ListView.builder(
+                      shrinkWrap: true,
+                      physics: ScrollPhysics(),
+                      padding: EdgeInsets.only(top: 1),
+                      itemCount: subsType.length,
+                      itemBuilder: (context, index) {
+                        return HomeVerticalTile(
+                          title: subsType[index][0],
+                          money: subsType[index][1],
+                        );
+                      })
                 ],
               ),
-              SizedBox(
-                height: 15,
-              ),
-              Text(
-                'Our development team and the client discuss about the problem domain or any idea and collects information to make the requirements clear for both parties. We use Fig Jam and Miro for interactive and informative requirement analysis. After requirement gathering, our team allocates tools and resources for software development process. Afterwards, we schedule the time needed for the software development',
-                textAlign: TextAlign.justify,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Text(
-                'Services',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                color: Colors.transparent,
-                height: 150,
-                child: Wrap(
-                  spacing: 12.0,
-                  runSpacing: 10.0,
-                  children: [
-                    servicesContainer(content: 'SEO'),
-                    servicesContainer(content: 'Digital Marketing'),
-                    servicesContainer(content: 'Business Planning'),
-                    servicesContainer(content: 'Photo Editior'),
-                    servicesContainer(content: 'Graphics Design'),
-                    servicesContainer(content: 'UI/UX Design'),
-                    servicesContainer(content: 'Video Editing'),
-                    servicesContainer(content: 'Mobile & Web Development'),
-                    servicesContainer(content: 'point of sale(online/offline)'),
-                    servicesContainer(content: 'ordering System'),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Service As Subscription',
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(
-                child: ListView.builder(
-                    padding: EdgeInsets.only(top: 1),
-                    itemCount: subsType.length,
-                    itemBuilder: (context, index) {
-                      return HomeVerticalTile(
-                        title: subsType[index][0],
-                        money: subsType[index][1],
-                      );
-                    }),
-              )
-            ],
+            ),
           ),
         ),
       ),
@@ -211,10 +226,16 @@ class servicesContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(6),
+      padding: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+      height: 22,
       decoration: BoxDecoration(
-          color: Colors.grey[800], borderRadius: BorderRadius.circular(12)),
-      child: Text(content),
+          color: Color.fromRGBO(150, 150, 150, 0.25),
+          borderRadius: BorderRadius.circular(15)),
+      child: Text(
+        content,
+        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w200),
+      ),
     );
   }
 }

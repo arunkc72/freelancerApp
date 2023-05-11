@@ -16,27 +16,28 @@ class UpperContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
-      width: 100,
-      margin: EdgeInsets.only(left: 20),
+      height: 105,
+      width: 120,
+      margin: EdgeInsets.only(right: 15),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(12)),
+          color: Colors.white, borderRadius: BorderRadius.circular(15)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(logoPath),
+          Container(height: 39, width: 39, child: Image.asset(logoPath)),
           SizedBox(
             height: 10,
           ),
           Text(
             companyName,
             style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14),
+                color: Colors.black, fontWeight: FontWeight.w600, fontSize: 10),
           ),
           Text(
             companyType,
-            style: TextStyle(color: Colors.black, fontSize: 11),
+            style: TextStyle(
+                color: Colors.black, fontSize: 7, fontWeight: FontWeight.w400),
           ),
         ],
       ),
