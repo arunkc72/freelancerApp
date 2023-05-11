@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/custom_button.dart';
 import '../utils/gradient_border.dart';
 
 class FreelancerPage extends StatefulWidget {
@@ -112,20 +113,10 @@ class FreelancerPageState extends State<FreelancerPage> {
                               style: myTextStyle(
                                   14, FontWeight.w400, Colors.white)),
                           SizedBox(height: 16),
-                          Container(
+                          CustomButton(
                             height: 24,
                             width: 103,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                gradient: const LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                      Color(0xff65F4CD),
-                                      Color(0xff5A5BF3),
-                                    ])),
-                            child: const Text(
+                            child: Text(
                               'Connect Now',
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.w600),
