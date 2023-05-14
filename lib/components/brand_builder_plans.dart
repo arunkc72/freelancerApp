@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/gradient_borders.dart';
+import 'package:brandbuilder_flutter/components/constant.dart';
 
-class BrandBuilderPlans extends StatelessWidget {
-  String? planId, planName, planPrice;
+class BrandBuilderPlans extends StatefulWidget {
+  String planName, planPrice;
+  int planId;
   BrandBuilderPlans({
     required this.planId,
     required this.planName,
@@ -11,61 +13,97 @@ class BrandBuilderPlans extends StatelessWidget {
   });
 
   @override
+  State<BrandBuilderPlans> createState() => _BrandBuilderPlansState();
+}
+
+class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
+  bool isSelected = false;
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          height: 120,
-          width: 105,
-          decoration: BoxDecoration(
-            border: GradientBoxBorder(
-              gradient: LinearGradient(
-                colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
-              ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              isSelected = !isSelected;
+            });
+          },
+          child: Container(
+            height: 153,
+            width: 114,
+            decoration: BoxDecoration(
+              border: isSelected
+                  ? GradientBoxBorder(
+                      gradient: LinearGradient(
+                        colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
+                      ),
+                    )
+                  : null,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(color: Colors.transparent, spreadRadius: 5),
+                BoxShadow(color: Colors.transparent, blurRadius: 4),
+              ],
             ),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(color: Colors.transparent, spreadRadius: 5),
-              BoxShadow(color: Colors.transparent, blurRadius: 4),
-            ],
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 30),
-                child: Text(
-                  planId!,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 27 + 16,
+                ),
+                // Container(
+                //   // padding: const EdgeInsets.only(top: -10),
+                //   height: 27,
+                //   width: 113,
+                //   decoration: BoxDecoration(
+                //     gradient: const LinearGradient(
+                //       colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
+                //       begin: Alignment.topCenter,
+                //       end: Alignment.bottomCenter,
+                //     ),
+                //     borderRadius: BorderRadius.circular(15),
+                //   ),
+                //   child: Center(
+                //     child: Text(
+                //       planName,
+                //       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                //     ),
+                //   ),
+                // ),
+                Text(
+                  widget.planId.toString().padLeft(2, '0'),
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-              ),
-              const SizedBox(height: 1),
-              Text(
-                "Yearly",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
+                const SizedBox(height: 16),
+                Text(
+                  "Yearly",
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.8),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 1,
-              ),
-              Text(
-                planPrice!,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
+                const SizedBox(height: 16),
+
+                Text(
+                  widget.planPrice,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white.withOpacity(0.8),
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Container(
           height: 27,
-          width: 105,
+          width: 113,
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
@@ -76,7 +114,7 @@ class BrandBuilderPlans extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              planName!,
+              widget.planName,
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
             ),
           ),

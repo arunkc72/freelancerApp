@@ -43,7 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 29),
+                  const SizedBox(height: 50),
                   IconButton(
                       constraints: const BoxConstraints(),
                       padding: EdgeInsets.zero,
