@@ -1,9 +1,9 @@
 import 'package:brandbuilder_flutter/components/brand_builder_logo.dart';
 import 'package:brandbuilder_flutter/components/brand_builder_plans.dart';
-import 'package:brandbuilder_flutter/pages/subscribed_page.dart';
 import 'package:flutter/material.dart';
-import 'package:bulleted_list/bulleted_list.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
+//import 'package:bulleted_list/bulleted_list.dart';
+import 'package:brandbuilder_flutter/start_page.dart';
+import 'package:brandbuilder_flutter/components/constant.dart';
 
 class CompanyPage extends StatefulWidget {
   const CompanyPage({Key? key}) : super(key: key);
@@ -202,177 +202,230 @@ class _CompanyPageState extends State<CompanyPage> {
                       ],
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Center(
-                  child: SizedBox(
-                    height: 40,
-                    width: 250,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Container(
-                                height: 250,
-                                width: double.infinity,
-                                color: Colors.transparent,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text("Choose Payment",
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w600)),
-                                        Icon(
-                                          Icons.arrow_drop_down,
-                                          color: Colors.black,
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    //for esewa choosin option
-                                    Container(
-                                      width: 400,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(137, 133, 128, 128),
-                                        borderRadius: BorderRadius.circular(13),
-                                      ),
-                                      child: Row(
+                  // Container(
+                  //   height: 100,
+                  //   width: double.infinity,
+                  //   child: SingleChildScrollView(
+                  //     scrollDirection: Axis.vertical,
+                  //     child: Column(
+                  //       children: [
+                  //         BulletedList(
+                  //           // bullet: Icon(Icons.check,color:Colors.red),
+                  //           listItems: [
+                  //             Text(
+                  //               service1,
+                  //               style: TextStyle(color: Colors.white),
+                  //             ),
+                  //             Text(
+                  //               service2,
+                  //               style: TextStyle(color: Colors.white),
+                  //             ),
+                  //             Text(
+                  //               service3,
+                  //               style: TextStyle(color: Colors.white),
+                  //             ),
+                  //             Text(
+                  //               service4,
+                  //               style: TextStyle(color: Colors.white),
+                  //             ),
+                  //             Text(
+                  //               service5,
+                  //               style: TextStyle(color: Colors.white),
+                  //             ),
+                  //           ],
+
+                  //           style: TextStyle(
+                  //               fontSize: 10, fontWeight: FontWeight.w500),
+                  //           bulletColor: Colors.white,
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+
+                  SizedBox(
+                    height: 22,
+                  ),
+                  Center(
+                    child: InkWell(
+                        onTap: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Container(
+                                  height: 250,
+                                  width: double.infinity,
+                                  color: Colors.transparent,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(
-                                            width: 150,
-                                            decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                        "assets/images/esewa.png"))),
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          Column(children: [
-                                            Text(
-                                              "Esewa",
+                                          Text("Choose Payment",
                                               style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w600),
-                                            ),
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                            Text("12313-193293-981")
-                                          ])
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w600)),
+                                          Icon(
+                                            Icons.arrow_drop_down,
+                                            color: Colors.black,
+                                          ),
                                         ],
                                       ),
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    //for khalti choosing option
-                                    Container(
-                                      width: 400,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color:
-                                            Color.fromARGB(137, 133, 128, 128),
-                                        borderRadius: BorderRadius.circular(13),
+                                      const SizedBox(
+                                        height: 10,
                                       ),
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            width: 150,
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/images/khalti.png"),
+                                      //for esewa choosin option
+                                      Container(
+                                        width: 400,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          color: Color.fromARGB(
+                                              137, 133, 128, 128),
+                                          borderRadius:
+                                              BorderRadius.circular(13),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              width: 150,
+                                              decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          "assets/images/esewa.png"))),
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            Column(children: [
+                                              Text(
+                                                "Esewa",
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              Text("12313-193293-981")
+                                            ])
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      //for khalti choosing option
+                                      Container(
+                                        width: 400,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          color: Color.fromARGB(
+                                              137, 133, 128, 128),
+                                          borderRadius:
+                                              BorderRadius.circular(13),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              width: 150,
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      "assets/images/khalti.png"),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          Column(children: [
-                                            Text(
-                                              "Khalti",
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w600),
-                                            ),
                                             const SizedBox(
-                                              height: 5,
+                                              width: 10,
                                             ),
-                                            Text("12313-193293-981")
-                                          ])
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    //buttons of payments
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        ElevatedButton(
-                                          onPressed: null,
-                                          child: Text(
-                                            "Pay now",
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w500,
-                                                color: Colors.white),
-                                          ),
-                                          style: ElevatedButton.styleFrom(
-                                              // backgroundColor: Colors.lightBlue,
-                                              disabledBackgroundColor:
-                                                  Colors.blue),
+                                            Column(children: [
+                                              Text(
+                                                "Khalti",
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              Text("12313-193293-981")
+                                            ])
+                                          ],
                                         ),
-                                        ElevatedButton(
-                                          onPressed: null,
-                                          child: Text(
-                                            "Cancel",
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w500,
-                                                color: Colors.white),
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      //buttons of payments
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          ElevatedButton(
+                                            onPressed: null,
+                                            style: ElevatedButton.styleFrom(
+                                                // backgroundColor: Colors.lightBlue,
+                                                disabledBackgroundColor:
+                                                    Colors.blue),
+                                            child: Text(
+                                              "Pay now",
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.white),
+                                            ),
                                           ),
-                                          style: ElevatedButton.styleFrom(
-                                              // backgroundColor: Colors.lightBlue,
-                                              disabledBackgroundColor:
-                                                  Colors.blue),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                )),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(25),
-                                  topRight: Radius.circular(25)),
+                                          ElevatedButton(
+                                            onPressed: null,
+                                            style: ElevatedButton.styleFrom(
+                                                // backgroundColor: Colors.lightBlue,
+                                                disabledBackgroundColor:
+                                                    Colors.blue),
+                                            child: Text(
+                                              "Cancel",
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.white),
+                                            ),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  )),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(25),
+                                    topRight: Radius.circular(25)),
+                              ),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 38,
+                          width: 211,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color(0xff65F4CD),
+                                  Color(0xff5A5BF3),
+                                ],
+                              )),
+                          child: Center(
+                            child: Text(
+                              "Subscribe",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
                             ),
                           ),
-                        );
-                      },
-                      child: Text(
-                        "Subscribe",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          // backgroundColor: Colors.lightBlue,
-                          disabledBackgroundColor: Colors.blue),
-                    ),
+                        )),
                   ),
                   SizedBox(
                     height: 16,
