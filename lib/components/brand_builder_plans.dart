@@ -49,9 +49,7 @@ class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
 
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 27 + 16,
-                ),
+                const SizedBox(height: 43),
                 // Container(
                 //   // padding: const EdgeInsets.only(top: -10),
                 //   height: 27,
@@ -74,7 +72,7 @@ class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
                 Text(
                   widget.planId.toString().padLeft(2, '0'),
                   style: TextStyle(
-                    fontSize: 36,
+                    fontSize: 33,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -83,7 +81,7 @@ class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
                   "Yearly",
                   style: TextStyle(
                     color: Colors.white.withOpacity(0.8),
-                    fontSize: 12,
+                    fontSize: 11,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -92,7 +90,7 @@ class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
                 Text(
                   widget.planPrice,
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 11,
                     color: Colors.white.withOpacity(0.8),
                     fontWeight: FontWeight.w400,
                   ),

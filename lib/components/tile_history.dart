@@ -20,9 +20,11 @@ class TileHistory extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 color: Colors.black,
-                blurRadius: 12,
-                spreadRadius: 12,
-                blurStyle: BlurStyle.inner)
+                blurRadius: 5,
+                spreadRadius: 10,
+                offset: Offset(0, 2)
+                //blurStyle: BlurStyle.inner)
+                ),
           ],
         ),
         child: Padding(
