@@ -118,7 +118,7 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
                           ),
                           Row(
                             children: [
-                              Icon(Icons.star_half),
+                              Icon(Icons.star_half, color: Colors.amber),
                               SizedBox(
                                 width: 7,
                               ),
