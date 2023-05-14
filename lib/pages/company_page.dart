@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 //import 'package:bulleted_list/bulleted_list.dart';
 import 'package:brandbuilder_flutter/start_page.dart';
 import 'package:brandbuilder_flutter/components/constant.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CompanyPage extends StatefulWidget {
   const CompanyPage({Key? key}) : super(key: key);
@@ -284,32 +285,46 @@ class _CompanyPageState extends State<CompanyPage> {
                                           borderRadius:
                                               BorderRadius.circular(13),
                                         ),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              width: 150,
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      image: AssetImage(
-                                                          "assets/images/esewa.png"))),
-                                            ),
-                                            const SizedBox(
-                                              width: 10,
-                                            ),
-                                            Column(children: [
-                                              Text(
-                                                "Esewa",
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                        child: Slidable(
+                                          endActionPane: ActionPane(
+                                              motion: StretchMotion(),
+                                              children: [
+                                                SlidableAction(
+                                                  onPressed: null,
+                                                  backgroundColor:
+                                                      Color(0xFFFE4A49),
+                                                  foregroundColor: Colors.white,
+                                                  icon: Icons.delete,
+                                                  label: 'Delete',
+                                                ),
+                                              ]),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                width: 150,
+                                                decoration: BoxDecoration(
+                                                    image: DecorationImage(
+                                                        image: AssetImage(
+                                                            "assets/images/esewa.png"))),
                                               ),
                                               const SizedBox(
-                                                height: 5,
+                                                width: 10,
                                               ),
-                                              Text("12313-193293-981")
-                                            ])
-                                          ],
+                                              Column(children: [
+                                                Text(
+                                                  "Esewa",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                                const SizedBox(
+                                                  height: 5,
+                                                ),
+                                                Text("12313-193293-981")
+                                              ])
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(
@@ -325,34 +340,49 @@ class _CompanyPageState extends State<CompanyPage> {
                                           borderRadius:
                                               BorderRadius.circular(13),
                                         ),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              width: 150,
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                      "assets/images/khalti.png"),
+                                        child: Slidable(
+                                          endActionPane: ActionPane(
+                                            motion: StretchMotion(),
+                                            children: [
+                                              SlidableAction(
+                                                onPressed: null,
+                                                backgroundColor:
+                                                    Color(0xFFFE4A49),
+                                                foregroundColor: Colors.white,
+                                                icon: Icons.delete,
+                                                label: 'Delete',
+                                              ),
+                                            ],
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                width: 150,
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                        "assets/images/khalti.png"),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            const SizedBox(
-                                              width: 10,
-                                            ),
-                                            Column(children: [
-                                              Text(
-                                                "Khalti",
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.w600),
-                                              ),
                                               const SizedBox(
-                                                height: 5,
+                                                width: 10,
                                               ),
-                                              Text("12313-193293-981")
-                                            ])
-                                          ],
+                                              Column(children: [
+                                                Text(
+                                                  "Khalti",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                                const SizedBox(
+                                                  height: 5,
+                                                ),
+                                                Text("12313-193293-981")
+                                              ])
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(
