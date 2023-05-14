@@ -34,7 +34,7 @@ class PersonalInformation extends StatelessWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/images/darkThemeBackground.png'),
-                fit: BoxFit.cover),
+                fit: BoxFit.fill),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(

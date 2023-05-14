@@ -1,7 +1,9 @@
 import 'package:brandbuilder_flutter/components/brand_builder_logo.dart';
 import 'package:brandbuilder_flutter/components/brand_builder_plans.dart';
+import 'package:brandbuilder_flutter/pages/subscribed_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bulleted_list/bulleted_list.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CompanyPage extends StatefulWidget {
   const CompanyPage({Key? key}) : super(key: key);
@@ -202,7 +204,9 @@ class _CompanyPageState extends State<CompanyPage> {
                                     const SizedBox(
                                       height: 10,
                                     ),
+
                                     //for esewa choosin option
+
                                     Container(
                                       width: 400,
                                       height: 50,
@@ -211,33 +215,50 @@ class _CompanyPageState extends State<CompanyPage> {
                                             Color.fromARGB(137, 133, 128, 128),
                                         borderRadius: BorderRadius.circular(13),
                                       ),
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            width: 150,
-                                            decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                        "assets/images/esewa.png"))),
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          Column(children: [
-                                            Text(
-                                              "Esewa",
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w600),
+                                      child: Slidable(
+                                        endActionPane: ActionPane(
+                                            motion: BehindMotion(),
+                                            children: const [
+                                              // A SlidableAction can have an icon and/or a label.
+                                              SlidableAction(
+                                                onPressed: null,
+                                                backgroundColor:
+                                                    Color(0xFFFE4A49),
+                                                foregroundColor: Colors.white,
+                                                icon: Icons.delete,
+                                                label: 'Delete',
+                                              ),
+                                            ]),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              width: 150,
+                                              decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          "assets/images/esewa.png"))),
                                             ),
                                             const SizedBox(
-                                              height: 5,
+                                              width: 10,
                                             ),
-                                            Text("12313-193293-981")
-                                          ])
-                                        ],
+                                            Column(children: [
+                                              Text(
+                                                "Esewa",
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              Text("12313-193293-981")
+                                            ])
+                                          ],
+                                        ),
                                       ),
                                     ),
+
                                     const SizedBox(
                                       height: 20,
                                     ),
@@ -250,33 +271,49 @@ class _CompanyPageState extends State<CompanyPage> {
                                             Color.fromARGB(137, 133, 128, 128),
                                         borderRadius: BorderRadius.circular(13),
                                       ),
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            width: 150,
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/images/khalti.png"),
+                                      child: Slidable(
+                                        endActionPane: ActionPane(
+                                            motion: BehindMotion(),
+                                            children: const [
+                                              // A SlidableAction can have an icon and/or a label.
+                                              SlidableAction(
+                                                onPressed: null,
+                                                backgroundColor:
+                                                    Color(0xFFFE4A49),
+                                                foregroundColor: Colors.white,
+                                                icon: Icons.delete,
+                                                label: 'Delete',
+                                              ),
+                                            ]),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              width: 150,
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      "assets/images/khalti.png"),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          Column(children: [
-                                            Text(
-                                              "Khalti",
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w600),
-                                            ),
                                             const SizedBox(
-                                              height: 5,
+                                              width: 10,
                                             ),
-                                            Text("12313-193293-981")
-                                          ])
-                                        ],
+                                            Column(children: [
+                                              Text(
+                                                "Khalti",
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              Text("12313-193293-981")
+                                            ])
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(
@@ -288,7 +325,11 @@ class _CompanyPageState extends State<CompanyPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         ElevatedButton(
-                                          onPressed: null,
+                                          onPressed: () => Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Subscribed())),
                                           child: Text(
                                             "Pay now",
                                             style: TextStyle(
