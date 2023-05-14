@@ -20,12 +20,10 @@ class BrandBuilderLogo extends StatelessWidget {
           Container(
             width: 160,
             height: 134,
+            padding: const EdgeInsets.fromLTRB(19, 19, 26, 0),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: AssetImage("assets/images/brandbuilderCircleLogo.png"),
-                ),
                 boxShadow: [
                   // BoxShadow(
                   //   color: Colors.white,
@@ -35,16 +33,22 @@ class BrandBuilderLogo extends StatelessWidget {
                   //   //blurStyle: BlurStyle.inner,
                   // ),
                 ]),
+            child: Image.asset('assets/images/brandbuilderCircleLogo.png'),
           ),
           Positioned(
-            bottom: -3,
-            right: -2,
-            child: Container(
-              // height: 16,
-              // width: 16,
-              color: Colors.transparent,
-              child: Icon(Icons.favorite_border_outlined),
+            bottom: 0,
+            right: 0,
+            child: Icon(
+              size: 16,
+              Icons.favorite_outline,
             ),
+            // child: Container(
+            //   height: 15.29,
+            //   width: 16.67,
+            //   //padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+            //   color: Colors.transparent,
+            //   child: Icon(Icons.favorite_border_outlined),
+            // ),
           )
         ],
       ),
