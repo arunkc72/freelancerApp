@@ -17,6 +17,13 @@ class TileHistory extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black,
+                blurRadius: 12,
+                spreadRadius: 12,
+                blurStyle: BlurStyle.inner)
+          ],
         ),
         child: Padding(
           padding: const EdgeInsets.only(
