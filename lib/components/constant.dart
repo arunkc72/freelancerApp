@@ -20,3 +20,8 @@ List<Map<dynamic, String>> history = [
     "rating": "4.6",
   },
 ];
+List<Map<dynamic, dynamic>> plansList = [
+  {"planId": 01, "planName": "SILVER", "planPrice": "\$150.00/year"},
+  {"planId": 01, "planName": "SILVER", "planPrice": "\$150.00/year"},
+  {"planId": 01, "planName": "SILVER", "planPrice": "\$150.00/year"},
+];
