@@ -2,31 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:brandbuilder_flutter/components/constant.dart';
 
-class BrandBuilderPlans extends StatefulWidget {
+class BrandBuilderPlans extends StatelessWidget {
   String planName, planPrice;
   int planId;
+  bool isSelected;
+  final VoidCallback onTap;
+
   BrandBuilderPlans({
     required this.planId,
     required this.planName,
     required this.planPrice,
+    required this.onTap,
+    required this.isSelected,
     super.key,
   });
-
   @override
-  State<BrandBuilderPlans> createState() => _BrandBuilderPlansState();
-}
-
-class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
-  bool isSelected = false;
   Widget build(BuildContext context) {
     return Stack(
       children: [
         GestureDetector(
-          onTap: () {
-            setState(() {
-              isSelected = !isSelected;
-            });
-          },
+          onTap: onTap,
           child: Container(
             height: 153,
             width: 114,
@@ -72,7 +67,7 @@ class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
                 //   ),
                 // ),
                 Text(
-                  widget.planId.toString().padLeft(2, '0'),
+                  planId.toString().padLeft(2, '0'),
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.w600,
@@ -90,7 +85,7 @@ class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
                 const SizedBox(height: 16),
 
                 Text(
-                  widget.planPrice,
+                  planPrice,
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white.withOpacity(0.8),
@@ -114,7 +109,7 @@ class _BrandBuilderPlansState extends State<BrandBuilderPlans> {
           ),
           child: Center(
             child: Text(
-              widget.planName,
+              planName,
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
             ),
           ),

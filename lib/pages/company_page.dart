@@ -1,5 +1,6 @@
 import 'package:brandbuilder_flutter/components/brand_builder_logo.dart';
 import 'package:brandbuilder_flutter/components/brand_builder_plans.dart';
+import 'package:brandbuilder_flutter/components/custom_button.dart';
 import 'package:flutter/material.dart';
 //import 'package:bulleted_list/bulleted_list.dart';
 import 'package:brandbuilder_flutter/start_page.dart';
@@ -23,6 +24,19 @@ class _CompanyPageState extends State<CompanyPage> {
       "Recommend changes to website architecture, content, linking and other factors to improve SEO positions for target keywords";
   String service5 =
       "Work with editorial and marketing teams to drive SEO in content creation and content programming";
+
+  List brandBuilderplanList = [
+    [01, 'Silver', '150.00'],
+    [01, 'Gold', '170.00'],
+    [01, 'Platinium', '200.00'],
+  ];
+  int selectedPlanIndex = 0;
+  planSelect(int index) {
+    setState(() {
+      selectedPlanIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,44 +123,34 @@ class _CompanyPageState extends State<CompanyPage> {
                   ),
                   // this component in in component folder
                   SizedBox(
-                    width: double.infinity,
-                    height: 154,
-                    // child: ListView.builder(
-                    //     scrollDirection: Axis.horizontal,
-                    //     shrinkWrap: true,
-                    //     physics: ScrollPhysics(),
-                    //     itemCount: plansList.length,
-                    //     itemBuilder: (context, index) {
-                    //       return BrandBuilderPlans(
-                    //           planId: plansList[index]['id'],
-                    //           planName: plansList[index]['name'],
-                    //           planPrice: plansList[index]['planList']);
-                    //     }),
+                      width: double.infinity,
+                      height: 154,
+                      // child: ListView.builder(
+                      //     scrollDirection: Axis.horizontal,
+                      //     shrinkWrap: true,
+                      //     physics: ScrollPhysics(),
+                      //     itemCount: plansList.length,
+                      //     itemBuilder: (context, index) {
+                      //       return BrandBuilderPlans(
+                      //           planId: plansList[index]['id'],
+                      //           planName: plansList[index]['name'],
+                      //           planPrice: plansList[index]['planList']);
+                      //     }),
 
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        BrandBuilderPlans(
-                            planId: 01,
-                            planName: "SILVER",
-                            planPrice: "\$150.00/year"),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        BrandBuilderPlans(
-                            planId: 02,
-                            planName: "GOLD",
-                            planPrice: "\$125.00/year"),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        BrandBuilderPlans(
-                            planId: 03,
-                            planName: "PLATINUM",
-                            planPrice: "\$125.00/year"),
-                      ],
-                    ),
-                  ),
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: brandBuilderplanList.length,
+                          itemBuilder: (context, index) {
+                            return BrandBuilderPlans(
+                              planId: brandBuilderplanList[index][0],
+                              planName: brandBuilderplanList[index][1],
+                              planPrice: brandBuilderplanList[index][2],
+                              isSelected: (selectedPlanIndex == index),
+                              onTap: () {
+                                planSelect(index);
+                              },
+                            );
+                          })),
                   const SizedBox(
                     height: 36,
                   ),
@@ -331,28 +335,28 @@ class _CompanyPageState extends State<CompanyPage> {
                                         height: 20,
                                       ),
                                       //for khalti choosing option
-                                      Container(
-                                        width: 400,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              137, 133, 128, 128),
-                                          borderRadius:
-                                              BorderRadius.circular(13),
+                                      Slidable(
+                                        endActionPane: ActionPane(
+                                          motion: StretchMotion(),
+                                          children: [
+                                            SlidableAction(
+                                              onPressed: null,
+                                              backgroundColor:
+                                                  Color(0xFFFE4A49),
+                                              foregroundColor: Colors.white,
+                                              icon: Icons.delete,
+                                              label: 'Delcasda',
+                                            ),
+                                          ],
                                         ),
-                                        child: Slidable(
-                                          endActionPane: ActionPane(
-                                            motion: StretchMotion(),
-                                            children: [
-                                              SlidableAction(
-                                                onPressed: null,
-                                                backgroundColor:
-                                                    Color(0xFFFE4A49),
-                                                foregroundColor: Colors.white,
-                                                icon: Icons.delete,
-                                                label: 'Delete',
-                                              ),
-                                            ],
+                                        child: Container(
+                                          width: 400,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            color: Color.fromARGB(
+                                                137, 133, 128, 128),
+                                            borderRadius:
+                                                BorderRadius.circular(13),
                                           ),
                                           child: Row(
                                             children: [
@@ -393,34 +397,28 @@ class _CompanyPageState extends State<CompanyPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          ElevatedButton(
-                                            onPressed: null,
-                                            style: ElevatedButton.styleFrom(
-                                                // backgroundColor: Colors.lightBlue,
-                                                disabledBackgroundColor:
-                                                    Colors.blue),
+                                          CustomButton(
+                                            height: 30,
+                                            width: 142,
                                             child: Text(
-                                              "Pay now",
+                                              "Pay Now",
                                               style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w600,
                                                   color: Colors.white),
                                             ),
                                           ),
-                                          ElevatedButton(
-                                            onPressed: null,
-                                            style: ElevatedButton.styleFrom(
-                                                // backgroundColor: Colors.lightBlue,
-                                                disabledBackgroundColor:
-                                                    Colors.blue),
+                                          CustomButton(
+                                            height: 30,
+                                            width: 142,
                                             child: Text(
                                               "Cancel",
                                               style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w600,
                                                   color: Colors.white),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       )
                                     ],
