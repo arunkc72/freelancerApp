@@ -27,8 +27,8 @@ class _CompanyPageState extends State<CompanyPage> {
 
   List brandBuilderplanList = [
     [01, 'Silver', '150.00'],
-    [01, 'Gold', '170.00'],
-    [01, 'Platinium', '200.00'],
+    [02, 'Gold', '175.00'],
+    [03, 'Platinium', '200.00'],
   ];
   int selectedPlanIndex = 0;
   planSelect(int index) {

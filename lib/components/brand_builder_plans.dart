@@ -23,6 +23,7 @@ class BrandBuilderPlans extends StatelessWidget {
         GestureDetector(
           onTap: onTap,
           child: Container(
+            margin: EdgeInsets.only(right: 23),
             height: 153,
             width: 114,
             decoration: BoxDecoration(
@@ -32,7 +33,7 @@ class BrandBuilderPlans extends StatelessWidget {
                         colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
                       ),
                     )
-                  : null,
+                  : Border.all(color: Colors.grey.shade800),
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(color: Colors.transparent, spreadRadius: 5),
