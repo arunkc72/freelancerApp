@@ -1,5 +1,6 @@
 import 'package:brandbuilder_flutter/pages/company_page.dart';
 import 'package:brandbuilder_flutter/pages/home_page.dart';
+import 'package:brandbuilder_flutter/pages/ui_uxpage.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/homepage_verticalTile.dart';
@@ -78,6 +79,12 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
                               MaterialPageRoute(
                                 builder: (context) => CompanyPage(),
                               ));
+                        },
+                        onDoubleTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CompanyPage()));
                         },
                         child: Container(
                           height: 119,
@@ -225,16 +232,22 @@ class servicesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-      height: 22,
-      decoration: BoxDecoration(
-          color: Color.fromRGBO(150, 150, 150, 0.25),
-          borderRadius: BorderRadius.circular(15)),
-      child: Text(
-        content,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w200),
+    return GestureDetector(
+      onDoubleTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => UiUXPage()));
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+        height: 22,
+        decoration: BoxDecoration(
+            color: Color.fromRGBO(150, 150, 150, 0.25),
+            borderRadius: BorderRadius.circular(15)),
+        child: Text(
+          content,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w200),
+        ),
       ),
     );
   }
