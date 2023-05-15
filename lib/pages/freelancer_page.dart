@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../components/custom_button.dart';
 import '../utils/gradient_border.dart';
+import 'freelancer_grid.dart';
 
 class FreelancerPage extends StatefulWidget {
   const FreelancerPage({Key? key}) : super(key: key);
@@ -116,10 +117,19 @@ class FreelancerPageState extends State<FreelancerPage> {
                           CustomButton(
                             height: 24,
                             width: 103,
-                            child: Text(
-                              'Connect Now',
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w600),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            FreelancerGrid()));
+                              },
+                              child: Text(
+                                'Connect Now',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w600),
+                              ),
                             ),
                           ),
                         ],
