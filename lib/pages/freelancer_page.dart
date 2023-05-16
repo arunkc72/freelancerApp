@@ -248,57 +248,55 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 33,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(10)),
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Row(
-            children: [
-              SizedBox(width: 5),
-              Container(
-                height: 6,
-                width: 6,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: Color(leadingcolor)),
-              ),
-              SizedBox(width: 6),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(title,
-                      style:
-                          const TextStyle(fontSize: 10, color: Colors.black)),
-                  SizedBox(width: 3),
-                  Text(subtitle,
-                      style: const TextStyle(
-                          fontSize: 8,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w300)),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(price,
-                      style:
-                          const TextStyle(fontSize: 10, color: Colors.black)),
-                  SizedBox(width: 3),
-                  Text(duration,
-                      style: const TextStyle(
-                          fontSize: 8,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w300)),
-                ],
-              ),
-              SizedBox(width: 17),
-            ],
-          ),
-        ]));
+      height: 33,
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Row(
+          children: [
+            SizedBox(width: 5),
+            Container(
+              height: 6,
+              width: 6,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: Color(leadingcolor)),
+            ),
+            SizedBox(width: 6),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(title,
+                    style: const TextStyle(fontSize: 10, color: Colors.black)),
+                SizedBox(width: 3),
+                Text(subtitle,
+                    style: const TextStyle(
+                        fontSize: 8,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300)),
+              ],
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(price,
+                    style: const TextStyle(fontSize: 10, color: Colors.black)),
+                SizedBox(width: 3),
+                Text(duration,
+                    style: const TextStyle(
+                        fontSize: 8,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300)),
+              ],
+            ),
+            SizedBox(width: 17),
+          ],
+        ),
+      ]),
+    );
   }
 }

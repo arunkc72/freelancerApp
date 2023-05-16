@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../components/searchbar.dart';
+
 class FreelancerGrid extends StatefulWidget {
   const FreelancerGrid({Key? key}) : super(key: key);
 
@@ -35,33 +37,7 @@ class _FreelancerGridState extends State<FreelancerGrid> {
                       icon: const Icon(Icons.arrow_back,
                           color: Colors.white, size: 20)),
                   SizedBox(height: 17),
-                  Container(
-                    //padding: EdgeInsets.symmetric(horizontal: 40),
-                    // width: 300,
-                    height: 37,
-                    padding: EdgeInsets.symmetric(vertical: 9, horizontal: 15),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: TextField(
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600),
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: Colors.black,
-                            size: 18,
-                          ),
-                          hintText: 'Search',
-                          hintStyle: TextStyle(
-                            color: Colors.black26,
-                          )),
-                    ),
-                  ),
+                  SearchBar(),
                   SizedBox(height: 32),
                   GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

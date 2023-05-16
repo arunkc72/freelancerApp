@@ -1,3 +1,4 @@
+import 'package:brandbuilder_flutter/pages/Profile%20Pages/generate_id.dart';
 import 'package:brandbuilder_flutter/pages/Profile%20Pages/personal_info.dart';
 import 'package:brandbuilder_flutter/utils/gradient_border.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +15,13 @@ class _ProfilePageState extends State<ProfilePage> {
   void handleTileTap(int index) {
     setState(() {
       selectedTileIndex = index;
-      index != 0
-          ? null
-          : Navigator.push(
+      index == 0
+          
+          ? Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => PersonalInformation(),
-              ));
+              )) :  (index==3) ? Navigator.push(context, MaterialPageRoute(builder: (context)=>GenerateId())):null;
     });
   }
 
