@@ -5,27 +5,27 @@ import '../../components/custom_button.dart';
 class GenerateId extends StatelessWidget {
   const GenerateId({Key? key}) : super(key: key);
 
+  Widget customdetail(String info, String detail) {
+    return Row(
+      children: [
+        Text(
+          info.toUpperCase(),
+          textAlign: TextAlign.right,
+          style: TextStyle(
+              color: Colors.black, fontSize: 13, fontWeight: FontWeight.w400),
+        ),
+        SizedBox(width: 19.7),
+        Text(
+          detail,
+          textAlign: TextAlign.left,
+          style: TextStyle(fontSize: 16, color: Color(0xff5c75ec)),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget customdetail(String info, String detail) {
-      return Row(
-        children: [
-          Text(
-            info.toUpperCase(),
-            textAlign: TextAlign.right,
-            style: TextStyle(
-                color: Colors.black, fontSize: 13, fontWeight: FontWeight.w400),
-          ),
-          SizedBox(width: 19.7),
-          Text(
-            detail,
-            textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 16, color: Color(0xff5c75ec)),
-          )
-        ],
-      );
-    }
-
     return DefaultScaffold(
       children: [
         SizedBox(height: 25),
@@ -47,6 +47,8 @@ class GenerateId extends StatelessWidget {
             Positioned(
                 top: 18.5,
                 right: 15.4,
+
+                // left: 10,
                 child: Image.asset(
                   'assets/images/IdQrcode.png',
                   height: 72,
@@ -128,7 +130,7 @@ class GenerateId extends StatelessWidget {
             height: 54,
             width: 224,
             child: Text(
-              'PRINt',
+              'PRINT',
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
