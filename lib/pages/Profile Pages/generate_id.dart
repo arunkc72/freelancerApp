@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 
 import '../../components/custom_button.dart';
+import '../../components/default_scaffold.dart';
 
 class GenerateId extends StatelessWidget {
   const GenerateId({Key? key}) : super(key: key);
 
+  static Widget customdetail(String info, String detail) {
+    return Row(
+      children: [
+        Text(
+          info.toUpperCase(),
+          textAlign: TextAlign.right,
+          style: TextStyle(
+              color: Colors.black, fontSize: 13, fontWeight: FontWeight.w400),
+        ),
+        SizedBox(width: 19.7),
+        Text(
+          detail,
+          textAlign: TextAlign.left,
+          style: TextStyle(fontSize: 16, color: Color(0xff5c75ec)),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget customdetail(String info, String detail) {
-      return Row(
-        children: [
-          Text(
-            info.toUpperCase(),
-            textAlign: TextAlign.right,
-            style: TextStyle(
-                color: Colors.black, fontSize: 13, fontWeight: FontWeight.w400),
-          ),
-          SizedBox(width: 19.7),
-          Text(
-            detail,
-            textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 16, color: Color(0xff5c75ec)),
-          )
-        ],
-      );
-    }
-
     return DefaultScaffold(
       children: [
         SizedBox(height: 25),
@@ -138,44 +139,5 @@ class GenerateId extends StatelessWidget {
         )
       ],
     );
-  }
-}
-
-class DefaultScaffold extends StatelessWidget {
-  final List<Widget> children;
-  const DefaultScaffold({
-    required this.children,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    var iconButton = IconButton(
-        constraints: const BoxConstraints(),
-        padding: EdgeInsets.zero,
-        onPressed: () => Navigator.pop(context),
-        icon: const Icon(Icons.arrow_back, color: Colors.white, size: 20));
-    return Scaffold(
-        body: SafeArea(
-      child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/darkThemeBackground.png'),
-                fit: BoxFit.fill),
-          ),
-          child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 24.0,
-              ),
-              child: SingleChildScrollView(
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                    const SizedBox(height: 38),
-                    iconButton,
-                    ...children,
-                  ])))),
-    ));
   }
 }
