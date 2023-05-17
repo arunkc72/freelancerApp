@@ -1,3 +1,4 @@
+import 'package:brandbuilder_flutter/onBoardingScreens/onBoardingMain.dart';
 import 'package:brandbuilder_flutter/pages/freelancer_page.dart';
 import 'package:brandbuilder_flutter/pages/history_page.dart';
 import 'package:brandbuilder_flutter/pages/home_page.dart';
@@ -24,7 +25,7 @@ class _StartPageState extends State<StartPage> {
     HomePage(),
     FreelancerPage(),
     MainCompanyPage(),
-    HistoryPage(),
+    OnBoradingMainPage(),
     ProfilePage(),
   ];
   void _onItemTapped(int index) {
