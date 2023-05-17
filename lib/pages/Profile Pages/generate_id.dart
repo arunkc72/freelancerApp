@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../components/custom_button.dart';
 import '../../components/default_scaffold.dart';
@@ -9,17 +10,28 @@ class GenerateId extends StatelessWidget {
   static Widget customdetail(String info, String detail) {
     return Row(
       children: [
-        Text(
-          info.toUpperCase(),
-          textAlign: TextAlign.right,
-          style: TextStyle(
-              color: Colors.black, fontSize: 13, fontWeight: FontWeight.w400),
+        Container(
+          height: 17,
+          width: 184,
+          alignment: Alignment.centerRight,
+          child: Text(
+            info.toUpperCase(),
+            style: TextStyle(
+                color: Colors.black, fontSize: 13, fontWeight: FontWeight.w400),
+          ),
         ),
         SizedBox(width: 19.7),
-        Text(
-          detail,
-          textAlign: TextAlign.left,
-          style: TextStyle(fontSize: 16, color: Color(0xff5c75ec)),
+        SizedBox(
+          height: 17,
+          width: 184,
+          child: Text(
+            detail,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 16,
+                color: Color(0xff5c75ec)),
+          ),
         )
       ],
     );
@@ -40,11 +52,12 @@ class GenerateId extends StatelessWidget {
         SizedBox(height: 64.5),
         Container(
           height: 570,
+          width: 388,
           color: Colors.white,
           child: Stack(children: [
             Positioned(
                 right: 0, child: Image.asset('assets/images/rigthtid.png')),
-            Positioned(left: 0, child: Image.asset('assets/images/leftid.png')),
+            Image.asset('assets/images/leftid.png'),
             Positioned(
                 top: 18.5,
                 right: 15.4,
@@ -55,7 +68,7 @@ class GenerateId extends StatelessWidget {
                 )),
             Positioned(
               top: 87,
-              right: 80,
+              left: 128,
               child: Container(
                 height: 156,
                 width: 156,
@@ -70,10 +83,20 @@ class GenerateId extends StatelessWidget {
               ),
             ),
             Positioned(
+              top: 18,
+              left: 20,
+              child: Text('h e a l e r'.toUpperCase(),
+                  style: GoogleFonts.mulish(
+                      textStyle: TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.w400))),
+            ),
+            Positioned(
+                top: 42,
+                left: 20,
+                child: Image.asset('assets/images/Society.png')),
+            Positioned(
               top: 280,
-              left: 62,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: 29,
@@ -82,6 +105,7 @@ class GenerateId extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 24,
+                        letterSpacing: 2,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -91,7 +115,10 @@ class GenerateId extends StatelessWidget {
                     height: 29,
                     child: Text(
                       'CBD USES',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 7,
                         fontSize: 20,
                         color: Color(0xff00D49B),
                       ),
@@ -102,21 +129,28 @@ class GenerateId extends StatelessWidget {
                   SizedBox(height: 17),
                   customdetail('Suffering from:', 'Anxiety, Stress'),
                   SizedBox(height: 17),
-                  customdetail('Date of registration', '1992-09-23'),
+                  customdetail('Date of registration:', '1992-09-23'),
                   SizedBox(height: 17),
                   customdetail('Expire date:', '1992-09-23'),
                   SizedBox(height: 24),
                   SizedBox(
-                    height: 40,
-                    child: Text(
-                      '+977-9801012345 \nPAnthi Galli, POkhara 03, Nepal'
-                          .toUpperCase(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black),
-                    ),
+                    child: Column(children: [
+                      Text(
+                        '+977-9801012345',
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'PAnthi Galli, POkhara 03,Nepal'.toUpperCase(),
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                    ]),
                   ),
                 ],
               ),
@@ -128,8 +162,9 @@ class GenerateId extends StatelessWidget {
           child: CustomButton(
             height: 54,
             width: 224,
+            borderRadius: 20,
             child: Text(
-              'PRINt',
+              'PRINT',
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,

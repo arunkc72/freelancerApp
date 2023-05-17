@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class DefaultScaffold extends StatelessWidget {
   final List<Widget> children;
   const DefaultScaffold({
@@ -16,6 +17,7 @@ class DefaultScaffold extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
       child: Container(
+          height: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/images/darkThemeBackground.png'),
