@@ -6,6 +6,7 @@ class CustomButton extends StatelessWidget {
   final bool? moreBorderRadius;
   final double? borderRadius;
   final Widget child;
+  final double? borderRadius;
   const CustomButton({
     required this.height,
     required this.width,
@@ -22,7 +23,7 @@ class CustomButton extends StatelessWidget {
       width: width,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(10),
           gradient: const LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
