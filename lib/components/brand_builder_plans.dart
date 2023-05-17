@@ -46,26 +46,6 @@ class BrandBuilderPlans extends StatelessWidget {
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 43),
-                // Container(
-                //   // padding: const EdgeInsets.only(top: -10),
-                //   height: 27,
-                //   width: 113,
-                //   decoration: BoxDecoration(
-                //     gradient: const LinearGradient(
-                //       colors: [Color(0xff65F4CD), Color(0xff5A5BF3)],
-                //       begin: Alignment.topCenter,
-                //       end: Alignment.bottomCenter,
-                //     ),
-                //     borderRadius: BorderRadius.circular(15),
-                //   ),
-                //   child: Center(
-                //     child: Text(
-                //       planName,
-                //       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                //     ),
-                //   ),
-                // ),
-
                 Text(
                   planId.toString().padLeft(2, '0'),
                   style: TextStyle(
@@ -83,7 +63,6 @@ class BrandBuilderPlans extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-
                 Text(
                   planPrice,
                   style: TextStyle(
