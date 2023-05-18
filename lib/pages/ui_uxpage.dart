@@ -58,7 +58,12 @@ class _UiUXPageState extends State<UiUXPage> {
                 child: Container(
                     height: 71.67,
                     width: 71.67,
-                    margin: EdgeInsets.fromLTRB(170, 100, 170, 35),
+                    margin: EdgeInsets.only(
+                      top: 107,
+                      // left: 0,
+                      // right: 170,
+                      bottom: 38,
+                    ),
                     child: Image.asset('assets/images/play.png')),
               ),
               SizedBox(
@@ -113,11 +118,6 @@ class _UiUXPageState extends State<UiUXPage> {
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.w300)),
                         ],
-                        //
-                        //
-                        //
-                        // Skills of a UX Designer
-                        // Tasks as important as creating experiences that meet the needs of customers, improving the perception of the brand, and creating a solid link with their products often falls into the hands of the UX Designer. Think for a moment about applications like Netflix or Spotify, tools like Google Sheets or Zapier, and digital products like Google Home or Philips Hue. We assure you that behind all of them there is an immense amount of user experience work, with the aim of creating an easy, intuitive, efficient, and beautiful application
                       )),
                 ),
               )

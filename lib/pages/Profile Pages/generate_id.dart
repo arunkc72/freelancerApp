@@ -61,6 +61,8 @@ class GenerateId extends StatelessWidget {
             Positioned(
                 top: 18.5,
                 right: 15.4,
+
+                // left: 10,
                 child: Image.asset(
                   'assets/images/IdQrcode.png',
                   height: 72,

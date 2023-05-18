@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final double height;
   final double width;
+  final bool? moreBorderRadius;
+  final double? borderRadius;
   final Widget child;
   final double? borderRadius;
   const CustomButton({
     required this.height,
     required this.width,
     required this.child,
-    this.borderRadius ,
+    this.borderRadius,
+    this.moreBorderRadius,
     super.key,
   });
 
@@ -20,7 +23,7 @@ class CustomButton extends StatelessWidget {
       width: width,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(borderRadius ?? 10),
+          borderRadius: BorderRadius.circular(10),
           gradient: const LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

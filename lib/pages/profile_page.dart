@@ -1,4 +1,5 @@
 import 'package:brandbuilder_flutter/pages/Profile%20Pages/generate_id.dart';
+import 'package:brandbuilder_flutter/pages/Profile%20Pages/my_devices.dart';
 import 'package:brandbuilder_flutter/pages/Profile%20Pages/personal_info.dart';
 import 'package:brandbuilder_flutter/utils/gradient_border.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +17,15 @@ class _ProfilePageState extends State<ProfilePage> {
     setState(() {
       selectedTileIndex = index;
       index == 0
-          
           ? Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => PersonalInformation(),
-              )) :  (index==3) ? Navigator.push(context, MaterialPageRoute(builder: (context)=>GenerateId())):null;
+              ))
+          : (index == 3)
+              ? Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => GenerateId()))
+              : null;
     });
   }
 
@@ -116,6 +120,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   CustomListTile(
                       isSelected: selectedTileIndex == 2,
                       onTap: () => handleTileTap(2),
+                      onLongPress: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MyDevices()));
+                      },
                       image: 'assets/images/DeviceIcon.png',
                       title: 'My Devices and Credentials',
                       subtitle:
@@ -154,12 +164,15 @@ class CustomListTile extends StatelessWidget {
   final String subtitle;
   final bool isSelected;
   final VoidCallback onTap;
+  final VoidCallback? onLongPress;
+
   const CustomListTile({
     required this.isSelected,
     required this.image,
     required this.title,
     required this.subtitle,
     required this.onTap,
+    this.onLongPress,
     super.key,
   });
 
@@ -167,6 +180,7 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      onLongPress: onLongPress,
       child: Container(
         height: 50,
         decoration: BoxDecoration(
