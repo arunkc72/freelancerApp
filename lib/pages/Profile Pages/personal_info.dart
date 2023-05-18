@@ -108,7 +108,11 @@ class _PersonalInformationState extends State<PersonalInformation> {
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.w500),
                               )
-                            : Text(personaldata[i]['text']),
+                            : Text(
+                                personaldata[i]['text'],
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
                         SizedBox(
                           height: 31,
                         )

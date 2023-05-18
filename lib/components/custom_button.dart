@@ -6,7 +6,6 @@ class CustomButton extends StatelessWidget {
   final bool? moreBorderRadius;
   final double? borderRadius;
   final Widget child;
-  final double? borderRadius;
   const CustomButton({
     required this.height,
     required this.width,
