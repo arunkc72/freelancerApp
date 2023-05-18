@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final double height;
   final double width;
+  final bool? moreBorderRadius;
+  final double? borderRadius;
   final Widget child;
+  final double? borderRadius;
   const CustomButton({
     required this.height,
     required this.width,
     required this.child,
+    this.borderRadius,
+    this.moreBorderRadius,
     super.key,
   });
 

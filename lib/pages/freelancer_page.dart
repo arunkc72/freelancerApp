@@ -1,3 +1,4 @@
+import 'package:brandbuilder_flutter/pages/freelancer_info.dart';
 import 'package:flutter/material.dart';
 
 import '../components/custom_button.dart';
@@ -36,11 +37,18 @@ class FreelancerPageState extends State<FreelancerPage> {
               child: Stack(
                 alignment: const Alignment(0.825, -1),
                 children: [
-                  Image.asset(
-                    'assets/images/freelancerprofile.png',
-                    height: 180,
-                    width: 160,
-                    fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FreelancerInfo(),
+                        )),
+                    child: Image.asset(
+                      'assets/images/freelancerprofile.png',
+                      height: 180,
+                      width: 160,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   GestureDetector(
                       onTap: () {
@@ -144,33 +152,27 @@ class FreelancerPageState extends State<FreelancerPage> {
           padding: EdgeInsets.symmetric(
             horizontal: 10.0,
           ),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GradientBorder(
-                    radius: 10,
-                    height: 27,
-                    width: 152,
-                    child: Text(
-                      'Total Earnings: \$900+',
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
-                    ),
-                  ),
-                  GradientBorder(
-                    radius: 10,
-                    height: 27,
-                    width: 152,
-                    child: Text(
-                      'Total Jobs : 23',
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
-                    ),
-                  ),
-                ]),
-          ),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            GradientBorder(
+              radius: 10,
+              height: 27,
+              width: 152,
+              child: Text(
+                'Total Earnings: \$900+',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
+              ),
+            ),
+            GradientBorder(
+              radius: 10,
+              height: 27,
+              width: 152,
+              child: Text(
+                'Total Jobs : 23',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
+              ),
+            ),
+          ]),
         ),
         const SizedBox(height: 22),
         const Text('Work History', style: TextStyle(fontSize: 16)),
@@ -188,6 +190,7 @@ class FreelancerPageState extends State<FreelancerPage> {
             subtitle: 'Completed',
             price: '\$210.00',
             duration: 'Feb 1,2021-April 25,2021'),
+        const SizedBox(height: 8),
       ],
     );
   }
