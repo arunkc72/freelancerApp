@@ -2,6 +2,8 @@ import 'package:brandbuilder_flutter/components/custom_button.dart';
 import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
+import '../start_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -114,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => HomePage()));
+                                        builder: (context) => StartPage()));
                               }
                             },
                             child: Text(
