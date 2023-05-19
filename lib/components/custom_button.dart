@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: isValidated == null
+                colors: isValidated == null || isValidated == false
                     ? [
                         Color(0xff65F4FD),
                         Color(0xff5A5BF3),

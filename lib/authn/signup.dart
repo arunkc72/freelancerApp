@@ -12,6 +12,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   bool obsureText = true;
+  bool _isvalid = false;
 
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -23,6 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Container(
             height: double.maxFinite,
@@ -88,6 +90,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                   return "Enter Password";
                                 }
                               },
+                              //  onChanged: (value) {
+                              //   setState(() {
+                              //     _isvalid = _formKey.currentState!.validate();
+                              //   });
+                              // },
                               decoration: InputDecoration(
                                   hintText: 'Password',
                                   hintStyle: TextStyle(color: Colors.white),
@@ -114,6 +121,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                 if (!phoneNumberValid) {
                                   return "Enter Valid PhoneNumber";
                                 }
+                              },
+                              onFieldSubmitted: (value) {
+                                setState(() {
+                                  _isvalid = _formKey.currentState!.validate();
+                                });
                               },
                               decoration: InputDecoration(
                                   hintText: 'PhoneNumber',
@@ -157,7 +169,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             CustomButton(
                                 height: 54,
                                 borderRadius: 20,
-                                isValidated: true,
+                                isValidated: _isvalid,
                                 width: 224,
                                 onTap: () {
                                   if (_formKey.currentState!.validate()) {
