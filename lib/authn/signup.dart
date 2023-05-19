@@ -108,8 +108,9 @@ class _SignUpPageState extends State<SignUpPage> {
                             TextFormField(
                               controller: _phoneNumberController,
                               validator: (value) {
-                                bool phoneNumberValid =
-                                    RegExp(r"^\?0[0-9]{10}$").hasMatch(value!);
+                                bool phoneNumberValid = RegExp(
+                                        r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
+                                    .hasMatch(value!);
                                 if (!phoneNumberValid) {
                                   return "Enter Valid PhoneNumber";
                                 }
