@@ -1,3 +1,4 @@
+import 'package:brandbuilder_flutter/authn/login_page.dart';
 import 'package:brandbuilder_flutter/components/custom_button.dart';
 import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -176,7 +177,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => HomePage()));
+                                            builder: (context) => LoginPage()));
                                   }
                                 },
                                 child: Text(
