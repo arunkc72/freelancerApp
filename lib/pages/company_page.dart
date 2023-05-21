@@ -16,10 +16,13 @@ class CompanyPage extends StatefulWidget {
 
 class _CompanyPageState extends State<CompanyPage> {
   bool isAdded = false; // for adding button
+  bool imePay = false;
 
   void setFunction() {
     setState(() {
       isPressed = !isPressed;
+      showSnackBar(context);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
       //setState(() {});
     });
   }
@@ -58,8 +61,194 @@ class _CompanyPageState extends State<CompanyPage> {
     });
   }
 
+  void showImeSnackBar(BuildContext context) {
+    final snackBar = SnackBar(
+      duration: Duration(minutes: 1),
+      content: Container(
+        height: 466,
+        color: Colors.transparent,
+        child: SingleChildScrollView(
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 0),
+                width: 115,
+                height: 35,
+                child: Image.asset(
+                  'assets/images/image 17.png',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Account Number",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Text(
+                "Account Holder Number",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Text(
+                "Amount",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Text(
+                "Purpose",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Text(
+                "Remark",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomButton(
+                    height: 30,
+                    width: 142,
+                    child: Text(
+                      "Pay Now",
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () =>
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                    child: CustomButton(
+                      height: 30,
+                      width: 142,
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   void showAddSnackBar(BuildContext context) {
     final snackBar = SnackBar(
+      duration: Duration(minutes: 1),
       content: Container(
         height: 300,
         color: Colors.transparent,
@@ -76,7 +265,10 @@ class _CompanyPageState extends State<CompanyPage> {
               //runSpacing: 24,
               children: [
                 InkWell(
-                  onDoubleTap: () {},
+                  onTap: () {
+                    showImeSnackBar(context);
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  },
                   onHover: (value) {
                     setState(() {
                       isHover = value;
@@ -219,6 +411,14 @@ class _CompanyPageState extends State<CompanyPage> {
                             itemBuilder: (context, index) {
                               return Slidable(
                                 endActionPane: ActionPane(
+                                    dismissible:
+                                        DismissiblePane(onDismissed: () {
+                                      paymentList.remove(paymentList[index]);
+                                      setState(() {});
+                                      showSnackBar(context);
+                                      ScaffoldMessenger.of(context)
+                                          .hideCurrentSnackBar();
+                                    }),
                                     extentRatio: 0.15,
                                     motion: StretchMotion(),
                                     children: [
@@ -227,6 +427,9 @@ class _CompanyPageState extends State<CompanyPage> {
                                           paymentList
                                               .remove(paymentList[index]);
                                           setState(() {});
+                                          showSnackBar(context);
+                                          ScaffoldMessenger.of(context)
+                                              .hideCurrentSnackBar();
                                         },
                                         backgroundColor: Color(0xFFFE4A49),
                                         foregroundColor: Colors.white,
@@ -388,7 +591,7 @@ class _CompanyPageState extends State<CompanyPage> {
                     padding: EdgeInsets.zero,
                     onPressed: () => Navigator.pop(context),
                     icon: const Icon(Icons.arrow_back,
-                        color: Colors.white, size: 24),
+                        color: Colors.white, size: 20),
                   ),
 
                   const SizedBox(
