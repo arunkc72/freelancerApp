@@ -36,15 +36,9 @@ class _FreelancerInfoState extends State<FreelancerInfo> {
                     // height: 86,
                     // width: 180,
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.5),
-                            offset: Offset(2, 4),
-                            blurRadius: 6,
-                          ),
-                        ]),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                     child: Row(
                       children: [
                         Image.asset(
@@ -56,53 +50,65 @@ class _FreelancerInfoState extends State<FreelancerInfo> {
                           fit: BoxFit.fill,
                         ),
                         SizedBox(width: 12),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'Nikita Boss',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                SizedBox(width: 24),
-                                Icon(
-                                  Icons.star_half,
-                                  size: 7,
-                                  color: Color(0xffFFFD54),
-                                ),
-                                Text(
-                                  '4.6',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'Web Developer',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 8,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                                height: 40,
-                                width: 96,
-                                child: Text(
-                                  'Hi, I am a web developer. I have a 5+ years working experience. It would be great pleasure to work with it.',
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 6,
-                                      fontWeight: FontWeight.w400),
-                                ))
-                          ],
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Nikita Boss',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Icon(
+                                        Icons.star_half,
+                                        size: 7,
+                                        color: Color(0xffFFFD54),
+                                      ),
+                                      SizedBox(width: 2),
+                                      Text(
+                                        '4.6',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 8,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 7),
+                              Text(
+                                'Web Developer',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 8,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              SizedBox(height: 4),
+                              Container(
+                                  width: 96,
+                                  padding: EdgeInsets.only(left: 4),
+                                  child: Text(
+                                    'Hi, I am a web developer. I have a 5+ years working experience. It would be great pleasure to work with it.',
+                                    textAlign: TextAlign.justify,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 6,
+                                        fontWeight: FontWeight.w400),
+                                  ))
+                            ],
+                          ),
                         )
                       ],
                     )),

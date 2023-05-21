@@ -23,6 +23,13 @@ class FreelancerPageState extends State<FreelancerPage> {
     );
   }
 
+  bool editable = false;
+  void _edit() {
+    setState(() {
+      editable = !editable;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultScaffold(
@@ -71,9 +78,15 @@ class FreelancerPageState extends State<FreelancerPage> {
                 Text('John Jack',
                     style: myTextStyle(20, FontWeight.w600, Colors.white)),
                 SizedBox(height: 10),
-                Text('UI/UX Designer',
-                    style: myTextStyle(
-                        14, FontWeight.w400, Colors.white.withOpacity(0.5))),
+                Row(
+                  children: [
+                    Text('UI/UX Designer',
+                        style: myTextStyle(14, FontWeight.w400,
+                            Colors.white.withOpacity(0.5))),
+                    SizedBox(width: 10),
+                    EditButton(ontap: _edit),
+                  ],
+                ),
                 SizedBox(height: 10),
                 Text('Experience: 2+ years',
                     style: myTextStyle(
@@ -103,10 +116,12 @@ class FreelancerPageState extends State<FreelancerPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => FreelancerGrid()));
+                              builder: (context) =>
+                                  // editable ? EditPage :
+                                  FreelancerGrid()));
                     },
                     child: Text(
-                      'Connect Now',
+                      editable ? 'Edit' : 'Connect Now',
                       style:
                           TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                     ),
@@ -192,6 +207,38 @@ class FreelancerPageState extends State<FreelancerPage> {
             duration: 'Feb 1,2021-April 25,2021'),
         const SizedBox(height: 8),
       ],
+    );
+  }
+}
+
+class EditButton extends StatelessWidget {
+  final VoidCallback ontap;
+  const EditButton({
+    required this.ontap,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: ontap,
+      child: Container(
+        height: 20,
+        width: 20,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Color.fromRGBO(255, 255, 255, 0.35),
+            width: 1,
+          ),
+          shape: BoxShape.circle,
+        ),
+        child: Icon(
+          Icons.edit,
+          size: 9,
+          color: Color.fromRGBO(255, 255, 255, 0.35),
+        ),
+      ),
     );
   }
 }

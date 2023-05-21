@@ -61,24 +61,14 @@ class _HistoryPageState extends State<HistoryPage> {
                   SizedBox(
                     height: 21,
                   ),
-
-                  // ListView.builder(
-                  //     itemCount: history.length,
-                  //     itemBuilder: (context, index) {
-                  //       return TileHistory(index: index);
-                  //     }),
-                  TileHistory(index: 0),
-                  const SizedBox(
-                    height: 13,
-                  ),
-                  TileHistory(index: 1),
-                  const SizedBox(
-                    height: 13,
-                  ),
-                  TileHistory(index: 2),
-
-                  SizedBox(
-                    height: 19,
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: ScrollPhysics(),
+                    itemCount: 3,
+                    padding: EdgeInsets.all(0),
+                    itemBuilder: (context, index) {
+                      return TileHistory();
+                    },
                   ),
                   Text(
                     "Worked for",
@@ -93,11 +83,11 @@ class _HistoryPageState extends State<HistoryPage> {
                   ListView.builder(
                       shrinkWrap: true,
                       physics: ScrollPhysics(),
-                      itemCount: history.length,
+                      itemCount: 10,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 7),
-                          child: TileHistory(index: index),
+                          child: TileHistory(),
                         );
                       }),
                 ],
