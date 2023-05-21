@@ -19,7 +19,10 @@ class _FreelancerGridState extends State<FreelancerGrid> {
       SizedBox(height: 32),
       GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3, mainAxisSpacing: 20, crossAxisSpacing: 20),
+              childAspectRatio: 0.7,
+              crossAxisCount: 4,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20),
           padding: EdgeInsets.zero,
           shrinkWrap: true,
           itemCount: 50,
@@ -28,8 +31,6 @@ class _FreelancerGridState extends State<FreelancerGrid> {
             return ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: SizedBox(
-                height: 105,
-                width: 80,
                 child: Column(
                   children: [
                     Container(
@@ -42,7 +43,7 @@ class _FreelancerGridState extends State<FreelancerGrid> {
                         children: [
                           Image.asset(
                             (index % 3 == 0)
-                                ? 'assets/images/nikitaboss.png'
+                                ? 'assets/images/freelancerprofile.png'
                                 : (index % 3 == 1)
                                     ? 'assets/images/nikitaboss2.png'
                                     : 'assets/images/nikitaboss3.png',
@@ -62,6 +63,7 @@ class _FreelancerGridState extends State<FreelancerGrid> {
                                     fontSize: 8,
                                   ),
                                 ),
+                                SizedBox(width: 8),
                                 Row(
                                   children: [
                                     Icon(
@@ -88,7 +90,12 @@ class _FreelancerGridState extends State<FreelancerGrid> {
                       alignment: Alignment.center,
                       width: 80,
                       height: 18,
-                      color: Colors.white,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8)),
+                      ),
                       child: Text(
                         'Web Developer',
                         style: TextStyle(
