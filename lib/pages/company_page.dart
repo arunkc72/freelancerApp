@@ -15,6 +15,30 @@ class CompanyPage extends StatefulWidget {
 }
 
 class _CompanyPageState extends State<CompanyPage> {
+  bool isAdded = false; // for adding button
+  bool imePay = false;
+
+  void setFunction() {
+    setState(() {
+      isPressed = !isPressed;
+      showSnackBar(context);
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      //setState(() {});
+    });
+  }
+
+  void addPayment() {
+    setState(() {
+      isAdded != isAdded;
+      showAddSnackBar(context);
+    });
+  }
+
+  bool isHover = false;
+
+  // used in choose payment snackbar
+
+  bool isPressed = false;
   String service1 = "Develop and implement link building strategy";
   String service2 =
       "Work with the development team to ensure SEO best practices are properly implemented on newly developed code";
@@ -27,7 +51,7 @@ class _CompanyPageState extends State<CompanyPage> {
 
   List brandBuilderplanList = [
     [01, 'Silver', '150.00'],
-    [02, 'Gold', '175.00'],
+    [02, 'Gold', '170.00'],
     [03, 'Platinium', '200.00'],
   ];
   int selectedPlanIndex = 0;
@@ -35,6 +59,509 @@ class _CompanyPageState extends State<CompanyPage> {
     setState(() {
       selectedPlanIndex = index;
     });
+  }
+
+  void showImeSnackBar(BuildContext context) {
+    final snackBar = SnackBar(
+      duration: Duration(minutes: 1),
+      content: Container(
+        height: 466,
+        color: Colors.transparent,
+        child: SingleChildScrollView(
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 0),
+                width: 115,
+                height: 35,
+                child: Image.asset(
+                  'assets/images/image 17.png',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Account Number",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Text(
+                "Account Holder Number",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Text(
+                "Amount",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Text(
+                "Purpose",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Text(
+                "Remark",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                height: 34,
+                width: 390,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                      fillColor: Color(0xffC4C4C4),
+                      filled: true),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomButton(
+                    height: 30,
+                    width: 142,
+                    child: Text(
+                      "Pay Now",
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () =>
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                    child: CustomButton(
+                      height: 30,
+                      width: 142,
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  void showAddSnackBar(BuildContext context) {
+    final snackBar = SnackBar(
+      duration: Duration(minutes: 1),
+      content: Container(
+        height: 300,
+        color: Colors.transparent,
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Add  Card",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+            SizedBox(
+              height: 24,
+            ),
+            Wrap(
+              //runSpacing: 24,
+              children: [
+                InkWell(
+                  onTap: () {
+                    showImeSnackBar(context);
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  },
+                  onHover: (value) {
+                    setState(() {
+                      isHover = value;
+                    });
+                  },
+                  child: Container(
+                    width: 149,
+                    height: 47,
+                    //color: Colors.grey.shade300,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset('assets/images/image 17.png'),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  color: (isHover) ? Colors.grey.shade400 : null,
+                  width: 158,
+                  height: 71,
+                  child: Image.asset('assets/images/image 18.png'),
+                ),
+                Container(
+                  width: 84,
+                  height: 84,
+                  child: Image.asset('assets/images/image 19.png'),
+                ),
+                SizedBox(
+                  width: 35,
+                ),
+                Container(
+                  width: 153,
+                  height: 46,
+                  child: Image.asset('assets/images/image 20.png'),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomButton(
+                  height: 30,
+                  width: 142,
+                  child: Text(
+                    "Pay Now",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () =>
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                  child: CustomButton(
+                    height: 30,
+                    width: 142,
+                    child: Text(
+                      "Cancel",
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  void showSnackBar(BuildContext context) {
+    final snackBar = SnackBar(
+      duration: Duration(minutes: 5),
+      content: Stack(
+        children: [
+          Container(
+              height: 300,
+              width: double.infinity,
+              color: Colors.transparent,
+              child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Choose Payment",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w600)),
+                      IconButton(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        onPressed: () => setFunction(),
+                        constraints:
+                            BoxConstraints(maxHeight: 20, maxWidth: 40),
+                        icon: (isPressed)
+                            ? Center(
+                                child: Icon(
+                                  Icons.keyboard_arrow_up,
+                                  //size: 12,
+                                  color: Colors.black,
+                                ),
+                              )
+                            : Icon(Icons.keyboard_arrow_down,
+                                //size: 12,
+                                color: Colors.black),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  //building payment methods list
+                  SizedBox(
+                    height: 150,
+                    child: (paymentList.isNotEmpty)
+                        ? ListView.separated(
+                            //for space between items
+                            separatorBuilder: (context, index) {
+                              return SizedBox(
+                                height: 15,
+                              );
+                            },
+                            scrollDirection: Axis.vertical,
+                            itemCount: paymentList.length,
+                            itemBuilder: (context, index) {
+                              return Slidable(
+                                endActionPane: ActionPane(
+                                    dismissible:
+                                        DismissiblePane(onDismissed: () {
+                                      paymentList.remove(paymentList[index]);
+                                      setState(() {});
+                                      showSnackBar(context);
+                                      ScaffoldMessenger.of(context)
+                                          .hideCurrentSnackBar();
+                                    }),
+                                    extentRatio: 0.15,
+                                    motion: StretchMotion(),
+                                    children: [
+                                      SlidableAction(
+                                        onPressed: (context) {
+                                          paymentList
+                                              .remove(paymentList[index]);
+                                          setState(() {});
+                                          showSnackBar(context);
+                                          ScaffoldMessenger.of(context)
+                                              .hideCurrentSnackBar();
+                                        },
+                                        backgroundColor: Color(0xFFFE4A49),
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.delete,
+                                        label: 'Delete',
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10),
+                                            bottomRight: Radius.circular(10)),
+                                        padding: EdgeInsets.only(left: -10),
+                                      ),
+                                    ]),
+                                child: Container(
+                                  width: 338,
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffC4C4C4),
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10)),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 150,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                                image: AssetImage(
+                                                    paymentList[index]
+                                                        ['image']))),
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      Column(children: [
+                                        Text(
+                                          paymentList[index]['name'],
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text("12313-193293-981")
+                                      ])
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          )
+                        : (isAdded == true)
+                            ? Center(
+                                child: Text(
+                                " payment method available",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ))
+                            : Center(
+                                child: Text(
+                                  "No payment method available",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                  ),
+
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  //buttons of payments
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomButton(
+                        height: 30,
+                        width: 142,
+                        child: Text(
+                          "Pay Now",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () =>
+                            ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                        child: CustomButton(
+                          height: 30,
+                          width: 142,
+                          child: Text(
+                            "Cancel",
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              )),
+          // this is add payment method  button
+          if (isPressed)
+            Positioned(
+              top: 20,
+              right: 0,
+              child: InkWell(
+                onTap: () {
+                  addPayment();
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                },
+                child: CustomButton(
+                    height: 30, width: 86, child: Text('Add card')),
+              ),
+            ),
+        ],
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override
@@ -64,19 +591,9 @@ class _CompanyPageState extends State<CompanyPage> {
                     padding: EdgeInsets.zero,
                     onPressed: () => Navigator.pop(context),
                     icon: const Icon(Icons.arrow_back,
-                        color: Colors.white, size: 24),
+                        color: Colors.white, size: 20),
                   ),
 
-                  // GestureDetector(
-                  //   onTap: () => Navigator.pop(context),
-                  //   child: Container(
-                  //     height: 20,
-                  //     width: 20,
-                  //     decoration: BoxDecoration(
-                  //         image: DecorationImage(
-                  //             image: AssetImage("assets/images/Vector.png"))),
-                  //   ),
-                  // ),
                   const SizedBox(
                     height: 28,
                   ),
@@ -125,18 +642,6 @@ class _CompanyPageState extends State<CompanyPage> {
                   SizedBox(
                       width: double.infinity,
                       height: 154,
-                      // child: ListView.builder(
-                      //     scrollDirection: Axis.horizontal,
-                      //     shrinkWrap: true,
-                      //     physics: ScrollPhysics(),
-                      //     itemCount: plansList.length,
-                      //     itemBuilder: (context, index) {
-                      //       return BrandBuilderPlans(
-                      //           planId: plansList[index]['id'],
-                      //           planName: plansList[index]['name'],
-                      //           planPrice: plansList[index]['planList']);
-                      //     }),
-
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: brandBuilderplanList.length,
@@ -207,46 +712,6 @@ class _CompanyPageState extends State<CompanyPage> {
                       ],
                     ),
                   ),
-                  // Container(
-                  //   height: 100,
-                  //   width: double.infinity,
-                  //   child: SingleChildScrollView(
-                  //     scrollDirection: Axis.vertical,
-                  //     child: Column(
-                  //       children: [
-                  //         BulletedList(
-                  //           // bullet: Icon(Icons.check,color:Colors.red),
-                  //           listItems: [
-                  //             Text(
-                  //               service1,
-                  //               style: TextStyle(color: Colors.white),
-                  //             ),
-                  //             Text(
-                  //               service2,
-                  //               style: TextStyle(color: Colors.white),
-                  //             ),
-                  //             Text(
-                  //               service3,
-                  //               style: TextStyle(color: Colors.white),
-                  //             ),
-                  //             Text(
-                  //               service4,
-                  //               style: TextStyle(color: Colors.white),
-                  //             ),
-                  //             Text(
-                  //               service5,
-                  //               style: TextStyle(color: Colors.white),
-                  //             ),
-                  //           ],
-
-                  //           style: TextStyle(
-                  //               fontSize: 10, fontWeight: FontWeight.w500),
-                  //           bulletColor: Colors.white,
-                  //         )
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
 
                   SizedBox(
                     height: 22,
@@ -254,182 +719,7 @@ class _CompanyPageState extends State<CompanyPage> {
                   Center(
                     child: InkWell(
                         onTap: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Container(
-                                  height: 250,
-                                  width: double.infinity,
-                                  color: Colors.transparent,
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("Choose Payment",
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600)),
-                                          Icon(
-                                            Icons.arrow_drop_down,
-                                            color: Colors.black,
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      //for esewa choosin option
-                                      Container(
-                                        width: 400,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              137, 133, 128, 128),
-                                          borderRadius:
-                                              BorderRadius.circular(13),
-                                        ),
-                                        child: Slidable(
-                                          endActionPane: ActionPane(
-                                              motion: StretchMotion(),
-                                              children: [
-                                                SlidableAction(
-                                                  onPressed: null,
-                                                  backgroundColor:
-                                                      Color(0xFFFE4A49),
-                                                  foregroundColor: Colors.white,
-                                                  icon: Icons.delete,
-                                                  label: 'Delete',
-                                                ),
-                                              ]),
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                width: 150,
-                                                decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                        image: AssetImage(
-                                                            "assets/images/esewa.png"))),
-                                              ),
-                                              const SizedBox(
-                                                width: 10,
-                                              ),
-                                              Column(children: [
-                                                Text(
-                                                  "Esewa",
-                                                  style: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w600),
-                                                ),
-                                                const SizedBox(
-                                                  height: 5,
-                                                ),
-                                                Text("12313-193293-981")
-                                              ])
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 20,
-                                      ),
-                                      //for khalti choosing option
-                                      Slidable(
-                                        endActionPane: ActionPane(
-                                          motion: StretchMotion(),
-                                          children: [
-                                            SlidableAction(
-                                              onPressed: null,
-                                              backgroundColor:
-                                                  Color(0xFFFE4A49),
-                                              foregroundColor: Colors.white,
-                                              icon: Icons.delete,
-                                              label: 'Delcasda',
-                                            ),
-                                          ],
-                                        ),
-                                        child: Container(
-                                          width: 400,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                            color: Color.fromARGB(
-                                                137, 133, 128, 128),
-                                            borderRadius:
-                                                BorderRadius.circular(13),
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                width: 150,
-                                                decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                    image: AssetImage(
-                                                        "assets/images/khalti.png"),
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 10,
-                                              ),
-                                              Column(children: [
-                                                Text(
-                                                  "Khalti",
-                                                  style: TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w600),
-                                                ),
-                                                const SizedBox(
-                                                  height: 5,
-                                                ),
-                                                Text("12313-193293-981")
-                                              ])
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 20,
-                                      ),
-                                      //buttons of payments
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          CustomButton(
-                                            height: 30,
-                                            width: 142,
-                                            child: Text(
-                                              "Pay Now",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: Colors.white),
-                                            ),
-                                          ),
-                                          CustomButton(
-                                            height: 30,
-                                            width: 142,
-                                            child: Text(
-                                              "Cancel",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: Colors.white),
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  )),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(25),
-                                    topRight: Radius.circular(25)),
-                              ),
-                            ),
-                          );
+                          showSnackBar(context);
                         },
                         child: Container(
                           height: 38,

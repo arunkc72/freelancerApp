@@ -42,13 +42,6 @@ class BrandBuilderLogo extends StatelessWidget {
               size: 16,
               Icons.favorite_outline,
             ),
-            // child: Container(
-            //   height: 15.29,
-            //   width: 16.67,
-            //   //padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-            //   color: Colors.transparent,
-            //   child: Icon(Icons.favorite_border_outlined),
-            // ),
           )
         ],
       ),
