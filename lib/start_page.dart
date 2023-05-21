@@ -25,7 +25,7 @@ class _StartPageState extends State<StartPage> {
     HomePage(),
     FreelancerPage(),
     MainCompanyPage(),
-    OnBoradingMainPage(),
+    HistoryPage(),
     ProfilePage(),
   ];
   void _onItemTapped(int index) {
