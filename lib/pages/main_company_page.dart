@@ -1,6 +1,7 @@
 import 'package:brandbuilder_flutter/pages/company_page.dart';
 import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:brandbuilder_flutter/pages/ui_uxpage.dart';
+import 'package:brandbuilder_flutter/start_page.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/homepage_verticalTile.dart';
@@ -50,7 +51,7 @@ class _MainCompanyPageState extends State<MainCompanyPage> {
                           onPressed: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomePage(),
+                                builder: (context) => StartPage(),
                               )),
                           icon: Icon(
                             Icons.arrow_back,

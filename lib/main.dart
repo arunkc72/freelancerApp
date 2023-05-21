@@ -1,4 +1,6 @@
+import 'package:brandbuilder_flutter/authn/login_page.dart';
 import 'package:brandbuilder_flutter/authn/signup.dart';
+import 'package:brandbuilder_flutter/onBoardingScreens/onBoardingController.dart';
 import 'package:brandbuilder_flutter/onBoardingScreens/onBoardingMain.dart';
 import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: MyTheme.darktheme,
       initialRoute: '/home',
-      routes: {'/home': (context) => const StartPage()},
+      routes: {'/home': (context) => const OnBoardingController()},
     );
   }
 }

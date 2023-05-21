@@ -82,7 +82,6 @@ class _OnBoradingMainPageState extends State<OnBoradingMainPage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 18,
-                              decoration: TextDecoration.underline,
                             ),
                           ),
                         ]),
