@@ -133,13 +133,15 @@ class FreelancerPageState extends State<FreelancerPage> {
         ),
         SizedBox(height: 15),
         RichText(
-            text: const TextSpan(
-                text: 'Description\n',
+            text: TextSpan(
+                text: 'Description',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 children: [
+              WidgetSpan(child: SizedBox(width: 10)),
+              WidgetSpan(child: EditButton(ontap: _edit)),
               TextSpan(
                   text:
-                      '\nHey, I am John Jack. I have been into UX/UI since 2020. During this time, I started as UI designer and developed my skills to UX designer too.\n',
+                      '\n\nHey, I am John Jack. I have been into UX/UI since 2020. During this time, I started as UI designer and developed my skills to UX designer too.\n',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
                   children: [
                     TextSpan(
@@ -155,11 +157,15 @@ class FreelancerPageState extends State<FreelancerPage> {
                         text:
                             '\n \u2022 Figma, Adobe XD, Blasamiq mockup, traditional pen and paper, notion.\n'),
                     TextSpan(
-                        text: '\nExperience\n',
-                        style: TextStyle(fontWeight: FontWeight.w600)),
+                        text: '\nExperience',
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                        children: [
+                          WidgetSpan(child: SizedBox(width: 10)),
+                          WidgetSpan(child: EditButton(ontap: _edit)),
+                        ]),
                     TextSpan(
                         text:
-                            '\n\u2022 UX/UI designer (2020- present) Brandbuilder \n\u2022 Working as a lead UX/UI designer. Prototyped and sketched food ordering applications, admin panel, pos, landing pages along with my amazing teams and interns.'),
+                            '\n\n\u2022 UX/UI designer (2020- present) Brandbuilder \n\u2022 Working as a lead UX/UI designer. Prototyped and sketched food ordering applications, admin panel, pos, landing pages along with my amazing teams and interns.'),
                   ]),
             ])),
         const SizedBox(height: 10),
