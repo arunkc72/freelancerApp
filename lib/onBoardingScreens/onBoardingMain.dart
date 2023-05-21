@@ -1,3 +1,4 @@
+import 'package:brandbuilder_flutter/authn/signup.dart';
 import 'package:brandbuilder_flutter/components/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -52,6 +53,12 @@ class _OnBoradingMainPageState extends State<OnBoradingMainPage> {
                   CustomButton(
                       height: 54,
                       width: 224,
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpPage()));
+                      },
                       child: Text(
                         'Sign In',
                         style: TextStyle(

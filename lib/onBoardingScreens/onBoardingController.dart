@@ -3,6 +3,7 @@ import 'package:brandbuilder_flutter/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../start_page.dart';
 import 'onBoarding1st.dart';
 import 'onBoarding2nd.dart';
 
@@ -58,7 +59,7 @@ class _OnBoardingControllerState extends State<OnBoardingController> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomePage()));
+                                  builder: (context) => StartPage()));
                         },
                         child:
                             Text('Done', style: TextStyle(color: Colors.white)))
