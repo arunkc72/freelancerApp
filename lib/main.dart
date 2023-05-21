@@ -1,15 +1,13 @@
-import 'package:brandbuilder_flutter/authn/login_page.dart';
-import 'package:brandbuilder_flutter/authn/signup.dart';
+import 'package:brandbuilder_flutter/Model/employee_model.dart';
 import 'package:brandbuilder_flutter/onBoardingScreens/onBoardingController.dart';
-import 'package:brandbuilder_flutter/onBoardingScreens/onBoardingMain.dart';
-import 'package:brandbuilder_flutter/pages/home_page.dart';
-import 'package:flutter/material.dart';
 
-import 'start_page.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import './utils/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(create: (context) => EmployeeModel(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

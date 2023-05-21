@@ -1,6 +1,27 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+
+List<Map<String, dynamic>> history = [
+  {
+    "name": "Nikita Boss",
+    "position": "Web Developer",
+    "image": "assets/images/person2.png",
+    "rating": 4.6,
+    "description":
+        "Hi, I am a web developer. I have a 5+ years working experience. It would be great pleasure to work with it.",
+  },
+];
+
+class EmployeeModel extends ChangeNotifier {
+  List<Employee> employees = history.map((e) => Employee.fromMap(e)).toList();
+  void addEmployee(Employee employee) {
+    employees.add(employee);
+    notifyListeners();
+  }
+}
+
 class Employee {
   final String name;
   final String image;
@@ -53,7 +74,8 @@ class Employee {
 
   String toJson() => json.encode(toMap());
 
-  factory Employee.fromJson(String source) => Employee.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Employee.fromJson(String source) =>
+      Employee.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -63,21 +85,20 @@ class Employee {
   @override
   bool operator ==(covariant Employee other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.name == name &&
-      other.image == image &&
-      other.description == description &&
-      other.rating == rating &&
-      other.position == position;
+
+    return other.name == name &&
+        other.image == image &&
+        other.description == description &&
+        other.rating == rating &&
+        other.position == position;
   }
 
   @override
   int get hashCode {
     return name.hashCode ^
-      image.hashCode ^
-      description.hashCode ^
-      rating.hashCode ^
-      position.hashCode;
+        image.hashCode ^
+        description.hashCode ^
+        rating.hashCode ^
+        position.hashCode;
   }
 }
